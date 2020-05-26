@@ -1,0 +1,1 @@
+canbiar en el archivo config.php que esta en app en  localhost:3307 por localhost
