@@ -58,12 +58,72 @@
             <!-- </div> -->
         </nav>
 </header>
-    <div class="container">
-        <div class="" id="contenedor">
+<div class="clarfix"></div>
+    <div class="container" style="padding-bottom:5%;padding-top:5%">
+        <div class="form-row">
+        <div class="col-md-6">
+                <label for="">ID :</label>
+                <input type="text" class="form-control" placeholder="ID" id="id" name="id" readonly>
+                
+            </div>
+            <div class="col-md-6">
+                <label for="">Nombre departamento :</label>
+                <input type="text" class="form-control" placeholder="Ingresar" name="nombrese" id="nombrese">
+                
+            </div>
+            
+            <div class="col-md-12">
+                <br>
+                <button id="ingDept" class="btn btn-outline-secondary btn-lg">Ingresar</button>
+                <button id="modDept" class="btn btn-outline-success btn-lg" hidden>Modificar</button>
+                <button id="eliDept" class="btn btn-outline-danger btn-lg" hidden>Eliminar</button>
+                <button id="desactDept" class="btn btn-outline-info btn-lg" hidden>Desactivar</button>
+                <button id="cancelDept" class="btn btn-outline-primary btn-lg" >Cancelar</button>
+            </div>
+        </div>
+        <br>
+        <br>
+        <br>
+        <table class="table table-ligt" id="tblUsu">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>NOMBRE</th>
+                    <th>CREACIÓN</th>
+                    <th>MODIFICACIÓN</th>
+                    <th>ESTADO</th>
+                    <th>ACCIÓN</th>
+                </tr>
+                <?php
 
+                    foreach($datos as $d):
+                        $idDept = $d->getId_dept();
+                        $nombre = $d->getNombre();
+                        $creacion = $d->getFecha_creacion();
+                        $modificacion = $d->getFecha_modificacion();
+                        $estado = $d->getEstado();
+                ?>
+                <tr>
+                    <td><?php echo $idDept;?></td>
+                    <td><?php echo $nombre;?></td>
+                    <td><?php echo $creacion;?></td>
+                    <td><?php echo $modificacion;?></td>
+                    <td><?php echo $estado;?></td>
+                    <td>
+                        <button class="btn btn-outline-secondary btn-lg" 
+                        onclick="habilitarBtn(); $('#nombrese').val('<?php echo $nombre?>');
+                        $('#id').val('<?php echo $idDept?>')">
+                            EDITAR
+                        </button>
+                    </td>
+                </tr>
+                <?php
+                    endforeach;
+                ?>
         </div>
     </div>
 </body>
+
 <!-- Footer -->
 <footer class="page-footer font-small" style="background-color:#313e48;">
 
@@ -88,4 +148,5 @@
     <script src="../views/resources/src/js/sweetalert2.all.min.js"></script>
     <script src="../views/resources/src/js/fontAweson.js"></script>
     <script src="../views/resources/js/deslogueo.js"></script>
+    <script src="../views/resources/js/departamentos.js"></script>
 </html>
