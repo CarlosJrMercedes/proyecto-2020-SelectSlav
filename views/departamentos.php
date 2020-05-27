@@ -60,13 +60,11 @@
 </header>
 <div class="clarfix"></div>
     <div class="container" style="padding-bottom:5%;padding-top:5%">
-        <div class="form-row">
-        <div class="col-md-6">
-                <label for="">ID :</label>
-                <input type="text" class="form-control" placeholder="ID" id="id" name="id" readonly>
-                
+        <div class="form-row" id="formdept">
+        <div class="">
             </div>
             <div class="col-md-6">
+                <input type="text" class="form-control" placeholder="ID" id="id" name="id" hidden readonly>
                 <label for="">Nombre departamento :</label>
                 <input type="text" class="form-control" placeholder="Ingresar" name="nombrese" id="nombrese">
                 

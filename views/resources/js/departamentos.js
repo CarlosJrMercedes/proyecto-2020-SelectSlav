@@ -145,7 +145,7 @@ $(document).on("click","#ingDept", function(){
 
  $(document).on("click","#verInactivos", function(){
     $("#tblActivos").attr("hidden",true);
-    $("#formMantenimiento").attr("hidden",true);
+    $("#formdept").attr("hidden",true);
     $("#regresar").attr("hidden",false);
        $.ajax({
            url : "departamentosInactivos.php"
