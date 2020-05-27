@@ -84,7 +84,10 @@
         <br>
         <br>
         <br>
-        <table class="table table-ligt" id="tblUsu">
+        <button id="regresar" class="btn btn-outline-warning btn-lg" hidden>Regresar</button>
+        <div id="tblActivos">
+        <button id="verInactivos" class="btn btn-outline-dark btn-sm" >Ver Departamentos Inactivos</button>
+            <table class="table table-ligt" id="tblUsu" style="text-align:center;">
             <thead>
                 <tr>
                     <th>ID</th>
@@ -120,6 +123,11 @@
                 <?php
                     endforeach;
                 ?>
+                  </tbody>
+            </table>
+        </div>
+        <div id="tblInac">
+        </div>
         </div>
     </div>
 </body>

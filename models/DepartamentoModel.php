@@ -14,6 +14,17 @@ class DepartamentoModel extends Conexion
         }
         return $q;
     }
+
+    function getAllDeptInactivos(){
+        $cositas = $this->con->query("SELECT * FROM departamentos WHERE estado=2");
+        $q = array();
+        while($fila=$cositas->fetch_assoc()){
+            $depa = new Departamentos($fila["id_dept"],$fila["nombre"],$fila["fecha_creacion"],$fila["fecha_modificacion"],
+            $fila["estado"]);
+            $q[]=$depa;
+        }
+        return $q;
+    }
     
     function insertDept($nombre){
 
@@ -69,6 +80,20 @@ class DepartamentoModel extends Conexion
             $sql = $this->con->prepare("UPDATE departamentos SET estado=2 WHERE id_dept=?");
             $sql->bind_param('s',$a);
             $a= $idDept;
+            $sql->execute();
+            return 1;
+        } catch (Exception $ex) {
+            return $ex;
+        }
+        finally{
+            $sql->close();
+        }
+    }
+    function activarDept($idDept){
+        try {
+            $sql = $this->con->prepare("UPDATE departamentos SET estado=1 WHERE id_dept=?");
+            $sql->bind_param('s',$a);
+            $a=$idDept;
             $sql->execute();
             return 1;
         } catch (Exception $ex) {

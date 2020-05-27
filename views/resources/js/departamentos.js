@@ -142,3 +142,35 @@ $(document).on("click","#ingDept", function(){
         }
       });
  });
+
+ $(document).on("click","#verInactivos", function(){
+    $("#tblActivos").attr("hidden",true);
+    $("#formMantenimiento").attr("hidden",true);
+    $("#regresar").attr("hidden",false);
+       $.ajax({
+           url : "departamentosInactivos.php"
+       }).done(function(res){
+           $("#tblInac").html(res);
+           
+       }).fail(function(){});
+});
+
+$(document).on("click","#regresar", function(){
+   location.reload();
+});
+
+
+function habilitarDept(){
+
+   var id = $("#activarDept").val();
+   $.ajax({
+       type:"POST",
+       data:"activar=yes"+"&id="+id,
+       url : "departamentosInactivos.php"
+   }).done(function(res){
+       $("#activarDept").val("");
+       $("#tblInac").html(res);
+       
+   }).fail(function(){});
+
+}

@@ -1,7 +1,7 @@
 <?php 
 
 
-    define("SERVER","localhost:3307");  
+    define("SERVER","localhost");  
     define("USER","root");
     define("PASSWORD","");
     define("CHAR","utf-8");
