@@ -58,14 +58,101 @@
             <!-- </div> -->
         </nav>
 </header>
-    <div class="container">
-        <div class="" id="contenedor">
+            
+    <div class="clarfix"></div>
+     <div class="container" style="padding-bottom:5%;padding-top:2%">
+     <div class="">
+        <p><h3>Gestión de Municipios</h3></p>
+    </div>
+        <div class="form-row" id="formMuni"> 
+            <div class="col-md-6">
+                <label for="">Departamento :</label>
+                <input type="text" class="form-control" id="idMuni" hidden readonly>
+                
+                <select name="dept" id="dept" class="form-control">
+                    <option value="0" selected>SELECCIONE</option>
+                    <?php
+                        foreach($sql as $r):
+                    ?>
+                        <option value="<?php echo $r["id_dept"]; ?>"><?php echo $r["nombre"]; ?></option>
+                    <?php
+                        endforeach;
+                    ?>
+                </select>
+            </div>
+            <div class="col-md-6">
+                <label for="">Nombre Municipio :</label>
+                <input type="text" class="form-control" placeholder="Ingresar" name="nombremun" id="nombremun">
+                
+            </div>
+            
+            <div class="col-md-12">
+                <br>
+                <button id="insertMunici" class="btn btn-outline-secondary btn-lg">Ingresar</button>
+                <button id="modifyMunici" class="btn btn-outline-success btn-lg" hidden>Modificar</button>
+                <button id="deleteMunici" class="btn btn-outline-danger btn-lg" hidden>Eliminar</button>
+                <button id="desactivarMunici" class="btn btn-outline-info btn-lg" hidden>Desactivar</button>
+                <button id="cancelMunici" class="btn btn-outline-primary btn-lg" >Cancelar</button>
+            </div>
+        </div>
+        <br>
+        <br>
+        <br>
+        <button id="regresar" class="btn btn-outline-warning btn-lg" hidden>Regresar</button>
+        <div id="tblActivos">
+        <button id="verMInactivos" class="btn btn-outline-dark btn-sm" >Ver Municipios Inactivos</button>
+            <table class="table table-ligt" id="tblUsu" style="text-align:center;">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>NOMBRE </th>
+                    <th>DEPARTAMENTO</th>
+                    <th>CREACIÓN</th>
+                    <th>MODIFICACIÓN</th>
+                    <th>ESTADO</th>
+                    <th>ACCIÓN</th>
+                </tr>
+            <thead>
+            <tbody>
+                <?php
 
+                    foreach($datos as $data):
+                        $id_munici = $data->getId_munici();
+                        $nombre = $data->getNombre();
+                        $dept = $data->getId_dept();
+                        $creacion = $data->getFecha_creacion();
+                        $modificacion = $data->getFecha_modificacion();
+                        $estado = $data->getEstado();
+                ?>
+                <tr>
+                    <td><?php echo $id_munici;?></td>
+                    <td><?php echo $nombre;?></td>
+                    <td><?php echo $dept;?></td>
+                    <td><?php echo $creacion;?></td>
+                    <td><?php echo $modificacion;?></td>
+                    <td><?php if($estado == 1){echo "Activo";}?></td>
+                    <td>
+                        <button class="btn btn-outline-secondary btn-lg" 
+                        onclick="habilitarBtn(); $('#nombremun').val('<?php echo $nombre?>');
+                        $('#dept').val('<?php echo $dept?>');$('#idMuni').val('<?php echo $id_munici?>');">
+                            EDITAR
+                        </button>
+                    </td>
+                </tr>
+                <?php
+                    endforeach;
+                ?>
+                  </tbody>
+            </table>
+        </div>
+        <div id="tblInac">
+        </div>
         </div>
     </div>
 </body>
+
 <!-- Footer -->
-<footer class="page-footer font-small" style="background-color:#313e48;">
+<footer class="page-footer font-small" style="background-color:#313e48;position: fixed;bottom: 0;width: 100%;">
 
   <!-- Copyright -->
   <div class="footer-copyright text-center py-3"><font color="#ffffff">© 2020 Copyright:</font>
@@ -88,4 +175,5 @@
     <script src="../views/resources/src/js/sweetalert2.all.min.js"></script>
     <script src="../views/resources/src/js/fontAweson.js"></script>
     <script src="../views/resources/js/deslogueo.js"></script>
+    <script src="../views/resources/js/municipio.js"></script>
 </html>

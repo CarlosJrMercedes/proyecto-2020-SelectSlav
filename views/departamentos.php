@@ -59,7 +59,10 @@
         </nav>
 </header>
 <div class="clarfix"></div>
-    <div class="container" style="padding-bottom:5%;padding-top:5%">
+    <div class="container" style="padding-bottom:5%;padding-top:2%">
+    <div class="">
+        <p><h3>Gestión de Departamentos</h3></p>
+    </div>
         <div class="form-row" id="formdept">
         <div class="">
             </div>
@@ -79,7 +82,6 @@
                 <button id="cancelDept" class="btn btn-outline-primary btn-lg" >Cancelar</button>
             </div>
         </div>
-        <br>
         <br>
         <br>
         <button id="regresar" class="btn btn-outline-warning btn-lg" hidden>Regresar</button>
@@ -109,7 +111,7 @@
                     <td><?php echo $nombre;?></td>
                     <td><?php echo $creacion;?></td>
                     <td><?php echo $modificacion;?></td>
-                    <td><?php echo $estado;?></td>
+                    <td><?php if($estado == 1){echo "Activo";}?></td>
                     <td>
                         <button class="btn btn-outline-secondary btn-lg" 
                         onclick="habilitarBtn(); $('#nombrese').val('<?php echo $nombre?>');
@@ -131,7 +133,7 @@
 </body>
 
 <!-- Footer -->
-<footer class="page-footer font-small" style="background-color:#313e48;">
+<footer class="page-footer font-small" style="background-color:#313e48;position: fixed;bottom: 0;width: 100%;">
 
   <!-- Copyright -->
   <div class="footer-copyright text-center py-3"><font color="#ffffff">© 2020 Copyright:</font>

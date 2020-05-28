@@ -5,7 +5,7 @@ $(document).ready(function(){
 $(document).on("click","#cancelUsu", function(){
    $("#id_centro").val("");
    $("#nombre").val("");
-   $("#id_munici").val("0");
+   $("#muni").val("0");
    $("#direccion").val("");
 
    $("#modUsu").attr("hidden",true);

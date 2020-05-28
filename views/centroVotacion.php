@@ -58,13 +58,14 @@
             <!-- </div> -->
         </nav>
 </header>
-    <div class="container">
+    <div class="container" style="padding-botton:5%;">
 
         <div class="" id="">
+        <div class="form-row" style="padding-top:2%;" id="formMantenimiento">
         <div class="col-md-12">
-        <p><h3>Gestión de Centros de Votación</h3></p>
-    </div>
-        <div class="form-row" style="padding-top:5%;" id="formMantenimiento">
+            <p><h3>Gestión de Centros de Votación</h3></p>
+        </div>
+        <div class="clearfix"></div>
             <div class="col-md-4">
                 <label for="">Nombre :</label>
                 <input type="text" id="id" hidden readonly>
@@ -160,7 +161,7 @@
     </div>
 </body>
 <!-- Footer -->
-<footer class="page-footer font-small" style="background-color:#313e48;">
+<footer class="page-footer font-small" style="background-color:#313e48;position: fixed;bottom: 0;width: 100%;">
 
   <!-- Copyright -->
   <div class="footer-copyright text-center py-3"><font color="#ffffff">© 2020 Copyright:</font>

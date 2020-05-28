@@ -88,11 +88,11 @@
         </div>      
         <!-- fin modal de inicio de sesion -->
     
-        aca ira el contenido
+        <!-- aca ira el contenido -->
     </div>
 </body>
 <!-- Footer -->
-<footer class="page-footer font-small" style="background-color:#313e48;">
+<footer class="page-footer font-small" style="background-color:#313e48;position: fixed;bottom: 0;width: 100%;">
 
   <!-- Copyright -->
   <div class="footer-copyright text-center py-3"><font color="#ffffff">© 2020 Copyright:</font>

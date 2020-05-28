@@ -58,9 +58,8 @@
     </header>
    <div class="clarfix"></div>
     <div class="container" style="padding-bottom:5%;padding-top:5%">
-    <div class="col-md-12">
+    <div class="">
         <p><h3>Gestión de Usuarios</h3></p>
-
     </div>
         <div class="form-row" id="formMantenimiento">
             <div class="col-md-6">
@@ -161,7 +160,7 @@
     </div>
 </body>
 <!-- Footer -->
-<footer class="page-footer font-small" style="background-color:#313e48;position:botton;">
+<footer class="page-footer font-small" style="background-color:#313e48;position: fixed;bottom: 0;width: 100%;">
 
   <!-- Copyright -->
   <div class="footer-copyright text-center py-3"><font color="#ffffff">© 2020 Copyright:</font>

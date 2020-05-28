@@ -24,7 +24,6 @@
     <title>Document</title>
 </head>
 <body>
-<br>
 <input type="text" id="activarDept" readonly hidden>
 <table class="table table-ligt" id="tblDeptInact" style="text-align:center;">
                 <thead>
@@ -53,7 +52,7 @@
                     <td><?php echo $nombre;?></td>
                     <td><?php echo $creacion;?></td>
                     <td><?php echo $modificacion;?></td>
-                    <td><?php echo $estado;?></td>
+                    <td><?php if($estado == 2){echo "Inactivo";}?></td>
                     <td>
                         <button class="btn btn-outline-secondary btn-lg" 
                         onclick="$('#activarDept').val ('<?php echo $idDept?>');habilitarDept();">
