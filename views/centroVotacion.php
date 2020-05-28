@@ -59,8 +59,103 @@
         </nav>
 </header>
     <div class="container">
-        <div class="" id="contenedor">
 
+        <div class="" id="">
+        <div class="col-md-12">
+        <p><h3>Gestión de Centros de Votación</h3></p>
+    </div>
+        <div class="form-row" style="padding-top:5%;" id="formMantenimiento">
+            <div class="col-md-4">
+                <label for="">Nombre :</label>
+                <input type="text" id="id" hidden readonly>
+                <input type="text" class="form-control" placeholder="Nombre" id="nombre">
+            </div>
+
+            <div class="col-md-4">
+            <label for="">Municipio :</label>
+                <select name="muni" id="muni" class="form-control">
+                    <option value="0" selected>SELECCIONE</option>
+                    <?php
+                        foreach($muni as $r):
+                    ?>
+                        <option value="<?php echo $r["id_munici"]; ?>"><?php echo $r["nombre"]; ?></option>
+                    <?php
+                        endforeach;
+                    ?>
+                </select>
+            </div>
+
+            <div class="col-md-4">
+                <label for="">Direccion:</label>
+                <input type="text" class="form-control" placeholder="Direccion" id="direccion">
+            </div>
+
+            <div class="col-md-12">
+                <br>
+                <button id="ingUsu" class="btn btn-outline-secondary btn-lg">Ingresar</button>
+                <button id="modUsu" class="btn btn-outline-success btn-lg" hidden>Modificar</button>
+                <button id="eliUsu" class="btn btn-outline-danger btn-lg" hidden>Eliminar</button>
+                <button id="desactUsu" class="btn btn-outline-info btn-lg" hidden>Desactivar</button>
+                <button id="cancelUsu" class="btn btn-outline-primary btn-lg" >Cancelar</button>
+            </div>
+        </div>
+        <br>
+        <br>
+        <br>
+        <button id="regresar" class="btn btn-outline-warning btn-lg" hidden>Regresar</button>
+        <div id="tablaData">
+        <button id="verInactivos" class="btn btn-outline-dark btn-sm" >Ver Inactivos</button>
+            <table class="table table-ligt" id="tblCentroV">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Municipio</th>
+                        <th>Direccion</th>
+                        <th>CREACIÓN</th>
+                        <th>MODIFICACIÓN</th>
+                        <th>ESTADO</th>
+                        <th>ACCIÓN</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php  
+                        foreach($centros as $d):
+                            $id = $d->getId_centro();
+                            $nombreComp = $d->getNombre();
+                            $muicipio = $d->getId_munici();
+                            $direccion = $d->getDireccion();
+                            $creacion = $d->getFecha_creacion();
+                            $modificacion = $d->getFecha_modificacion();
+                            $estado = $d->getEstado();
+                        ?>
+                        <tr>
+                        <td><?php echo $id;?></td>
+                        <td><?php echo $nombreComp;?></td>
+                        <td><?php echo $muicipio;?></td>
+                        <td><?php echo $direccion;?></td>
+                        <td><?php echo $creacion;?></td>
+                        <td><?php echo $modificacion;?></td>
+                        <td><?php if($estado == 1){echo "Activo";} ?></td>
+                        <td>
+                            <button class="btn btn-outline-secondary btn-lg" 
+                            onclick="habilitarBtn();$('#muni').val('<?php echo $muicipio?>');
+                                    $('#nombre').val('<?php echo $nombreComp?>');
+                                    $('#id').val('<?php echo $id?>');
+                                    $('#direccion').val('<?php echo $direccion?>');">
+                                EDITAR
+                            </button>
+                        </td>
+                        </tr>
+                        <?php
+                        endforeach;
+                    ?>
+                </tbody>
+            </table>
+        </div>
+        <div id="tabalInactivoa">
+                        
+        </div>
         </div>
     </div>
 </body>
@@ -88,4 +183,5 @@
     <script src="../views/resources/src/js/sweetalert2.all.min.js"></script>
     <script src="../views/resources/src/js/fontAweson.js"></script>
     <script src="../views/resources/js/deslogueo.js"></script>
+    <script src="../views/resources/js/centroV.js"></script>
 </html>
