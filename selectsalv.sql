@@ -19,10 +19,10 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `selectsalv`
-drop database if exists selectsalv;
-create database selectsalv;
-use selectsalv;
+-- Base de datos: `selectalv`
+drop database if exists selectSalv;
+create database selectSalv;
+use selectSalv;
 
 -- --------------------------------------------------------
 
