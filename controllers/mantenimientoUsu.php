@@ -1,5 +1,12 @@
 <?php
-
+    session_start();
+    if($_SESSION["nombre"] != null ){
+ 
+    }
+    else{
+        header("Location: indexController.php");
+    }
+    
     require "../models/UsuarioModel.php";
 
 

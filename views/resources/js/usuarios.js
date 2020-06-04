@@ -15,7 +15,7 @@ $(document).on("click","#cancelUsu", function(){
    $("#ingUsu").attr("hidden",false);
 });
 
-
+ 
 function habilitarBtn(){
 
    $("#modUsu").attr("hidden",false);

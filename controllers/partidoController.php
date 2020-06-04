@@ -1,5 +1,12 @@
 
 <?php
+    
+    require "../models/PartidoModel.php";
+    $pp = new PartidoModel();
 
-require_once "../views/partidos.php";
+    $data = $pp->getAllPartidos();
+
+
+    require_once "../views/partidos.php";
+
 ?>

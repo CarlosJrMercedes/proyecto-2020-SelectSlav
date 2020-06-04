@@ -1,5 +1,4 @@
 
 <?php
-
-require_once "../views/votos.php";
+    require_once "../views/votos.php";
 ?>

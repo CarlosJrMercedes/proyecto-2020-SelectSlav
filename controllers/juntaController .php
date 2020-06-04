@@ -1,6 +1,6 @@
 
 <?php
 
-require_once "../views/juntaReceptora.php";
+    require_once "../views/juntaReceptora.php";
 
 ?>

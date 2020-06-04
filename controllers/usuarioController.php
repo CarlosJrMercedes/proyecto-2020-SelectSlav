@@ -1,6 +1,7 @@
 
 <?php
     require "../models/UsuarioModel.php";
+    
     $objUsuarios = new UsuarioModel();
     $datos = $objUsuarios->getAllUsers();
     $roles= $objUsuarios->getAllRol();

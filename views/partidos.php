@@ -60,7 +60,151 @@
 </header>
     <div class="container">
         <div class="" id="contenedor">
+            <div class="">
+                <p><h3>Gestión de Partidos</h3></p>
+                <p id="textoC" hidden class="p-2 bg-danger bg-outline text-white">
+                    Edición Completa.
+                </p>
+                <p id="textoB" hidden class="p-2 bg-success bg-outline text-white">
+                    Edición Básica.
+                </p>
+            </div>
+            <form id="formPart" enctype="multipart/form-data">
+                <div class="form-row" id="formMantenimiento">
+                    <div class="col-md-6">
+                        <label for="">Nombre partido :</label>
+                        <input type="text" class="form-control" placeholder="Partido" 
+                        id="nomPartido" require>
+                        <input type="text" id="idPartido" hidden readonly>
+                        <input type="text" id="completo" hidden readonly>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="">Nombre Candidato :</label>
+                        <input type="text" class="form-control" placeholder="Candidato" 
+                        id="nomCandi" require>
+                    </div>
+                    <div class="col-md-6">
+                        <br>
+                        <label for="">Foto Bandera :</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
+                            </div>
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input" id="bandera"
+                                aria-describedby="inputGroupFileAddon01" name="bandera" require>
+                                <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="col-md-6">
+                        <br>
+                        <label for="">Foto Candidato :</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
+                            </div>
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input" id="candidato"
+                                aria-describedby="inputGroupFileAddon01" require>
+                                <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-12">
+                        <br>
+                        <button id="ingPart" class="btn btn-outline-secondary btn-lg" type="button">Ingresar</button>
+                        <button id="modPart" class="btn btn-outline-success btn-lg" type="button" hidden>Modificar</button>
+                        <button id="eliPart" class="btn btn-outline-danger btn-lg" type="button" hidden>Eliminar</button>
+                        <button id="desactPart" class="btn btn-outline-info btn-lg" type="button" hidden>Desactivar</button>
+                        <button id="cancelPart" class="btn btn-outline-primary btn-lg" type="button" >Cancelar</button>
+                    </div>
 
+                </div>
+            </form>
+            <br>
+            <br>
+            <br>
+        </div>
+        <button id="regresar" class="btn btn-outline-warning btn-lg" hidden>Regresar</button>
+        <div id="activos" style="">
+            <button id="verInactivos" class="btn btn-outline-dark btn-sm" >Ver Usuarios Inactivos</button>
+            <table class="table table-ligt" id="tblPart" style="text-align:center;">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre Partido</th>
+                        <th>Nombre Candidato</th>
+                        <th>Bandera</th>
+                        <th>Candidato</th>
+                        <th>Creaciópn</th>
+                        <th>Modificacion</th>
+                        <th>Estado</th>
+                        <th>ACCIÓN</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+
+                        foreach($data as $d):
+                            $id = $d->getId_partido();
+                            $nombrePart = $d->getNombrePartido();
+                            $nombreCand = $d->getNombreCandidato();
+                            $bandera = $d->getFotoBanderaPartido();
+                            $candidato = $d->getFotoCandidato();
+                            $creacion = $d->getFechaCreacion();
+                            $modificacion = $d->getFechaModificacion();
+                            $estado = $d->getEstado();
+                    ?>
+                    <tr>
+                        <td><?php echo $id;?></td>
+                        <td><?php echo $nombrePart;?></td>
+                        <td><?php echo $nombreCand;?></td>
+                        <td>
+                            <img src="<?php echo $bandera;?>" style="width: 100%;height:50px" class="rounded mx-auto d-block">
+                        </td>
+                        <td>
+                            <img src="<?php echo $candidato;?>" style="width: 100%;height:50px" class="rounded mx-auto d-block">
+                        </td>
+                        <td><?php echo $creacion;?></td>
+                        <td><?php echo $modificacion;?></td>
+                        <td><?php if($estado == 1){echo "Activo";} ?></td>
+                        <td>
+                            <button class="btn btn-outline-secondary btn-sm col-12" 
+                            onclick="$('#idPartido').val('<?php echo $id;?>');
+                                     $('#nomPartido').val('<?php echo $nombrePart;?>');
+                                     $('#nomCandi').val('<?php echo $nombreCand;?>');
+                                     $('#completo').val('');habilitarBtn();
+                                     $('#textoB').attr('hidden', false);
+                                     $('#textoC').attr('hidden', true);">
+                                EDITAR BÁSICO
+                            </button>
+                            <button class="btn btn-outline-dark btn-sm col-12" 
+                            onclick="$('#idPartido').val('<?php echo $id;?>');
+                                     $('#nomPartido').val('<?php echo $nombrePart;?>');
+                                     $('#nomCandi').val('<?php echo $nombreCand;?>');
+                                     $('#completo').val('SI');habilitarBtn();
+                                     $('#textoB').attr('hidden', true);
+                                     $('#textoC').attr('hidden', false);">
+                                EDITAR COMPLETO
+                            </button>
+                        </td>
+                    </tr>
+                    <?php
+                        endforeach;
+                    ?>
+                </tbody>
+            </table>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+        </div>
+        <div id="tblInac">
+            
         </div>
     </div>
 </body>
@@ -87,5 +231,8 @@
     <script src="../views/resources/src/js/responsive.bootstrap4.min.js"></script>
     <script src="../views/resources/src/js/sweetalert2.all.min.js"></script>
     <script src="../views/resources/src/js/fontAweson.js"></script>
+    <script src="../views/resources/src/js/jsDelivr.js"></script>
     <script src="../views/resources/js/deslogueo.js"></script>
+    <script src="../views/resources/js/partido.js"></script>
 </html>
+
