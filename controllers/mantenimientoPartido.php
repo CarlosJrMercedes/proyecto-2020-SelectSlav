@@ -19,11 +19,11 @@
                 $bandera = $_FILES["bandera"]["name"];
                 $candidato = $_FILES["candidato"]["name"];
                 $ruta = "img/";
-                if(move_uploaded_file($_FILES["bandera"]["tmp_name"],$ruta.$bandera) &&
-                    move_uploaded_file($_FILES["candidato"]["tmp_name"],$ruta.$candidato)){
+                if(move_uploaded_file($_FILES["bandera"]["tmp_name"],$ruta.$nombrePartido.$nombreCamdi.$bandera) &&
+                    move_uploaded_file($_FILES["candidato"]["tmp_name"],$ruta.$nombrePartido.$nombreCamdi.$candidato)){
 
                     $proc = $partidoModel->insertPartido($nombrePartido,$nombreCamdi,
-                    $ruta.$bandera,$ruta.$candidato);
+                    $ruta.$nombrePartido.$nombreCamdi.$bandera,$ruta.$nombrePartido.$nombreCamdi.$candidato);
                 echo $proc;
                 }else{
                     echo "2";    

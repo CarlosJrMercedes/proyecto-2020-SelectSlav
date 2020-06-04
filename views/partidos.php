@@ -179,7 +179,7 @@
                             onclick="$('#idPartido').val('<?php echo $id;?>');
                                      $('#nomPartido').val('<?php echo $nombrePart;?>');
                                      $('#nomCandi').val('<?php echo $nombreCand;?>');
-                                     $('#completo').val('');habilitarBtn();
+                                     $('#completo').val('');habilitarBtnB();
                                      $('#fotoB').val('');$('#fotoC').val('');
                                      $('#textoB').attr('hidden', false);
                                      $('#textoC').attr('hidden', true);

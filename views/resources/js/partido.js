@@ -26,6 +26,19 @@ $(document).ready(function () {
 
 }
 
+function habilitarBtnB(){
+
+  $("#modPart").attr("hidden",false);
+  $("#eliPart").attr("hidden",true);
+  $("#desactPart").attr("hidden",false);
+  $("#ingPart").attr("hidden",true);
+
+}
+
+function reacargar(){
+  location.reload();
+}
+
  $(document).on("click","#ingPart", function(){
   var bandera = $("#bandera").prop('files')[0];
   var candidato = $("#candidato").prop('files')[0];
@@ -49,9 +62,14 @@ if(nomPartido.trim() != ""  && nomCandi.trim() != "" && bandera != null && candi
   }).done(function(res){
 
     if(res == 1){
-
-      Swal.fire("Informacion","Registro ingresado con exito","info");
-      location.reload();
+      Swal.fire({
+        icon: 'success',
+        title: 'Registro ingresado con exito',
+        showConfirmButton: false,
+        timer: 1500
+      });
+      document.getElementById("formPart").reset();
+      window.setTimeout("reacargar()",1800);
     }else{
       Swal.fire("Error","Acción fallido","error");
     }
@@ -99,8 +117,14 @@ if(nomPartido.trim() != ""  && nomCandi.trim() != "" && bandera != null && candi
     
         if(res == 1){
     
-          Swal.fire("Informacion","Registro Modificado con exito","info");
-          location.reload();
+          Swal.fire({
+            icon: 'success',
+            title: 'Registro modificado con exito',
+            showConfirmButton: false,
+            timer: 1300
+          });
+          document.getElementById("formPart").reset();
+          window.setTimeout("reacargar()",1800);
         }else{
           Swal.fire("Error","Acción fallido","error");
         }
@@ -123,8 +147,14 @@ if(nomPartido.trim() != ""  && nomCandi.trim() != "" && bandera != null && candi
       }).done(function(res){
         if(res == 1){
     
-          Swal.fire("Informacion","Registro Modificado con exito","info");
-          location.reload();
+          Swal.fire({
+            icon: 'success',
+            title: 'Registro modificado con exito',
+            showConfirmButton: false,
+            timer: 1300
+          });
+          document.getElementById("formPart").reset();
+          window.setTimeout("reacargar()",1800);
         }else{
           Swal.fire("Error","Acción fallido","error");
         }
@@ -163,8 +193,14 @@ if(nomPartido.trim() != ""  && nomCandi.trim() != "" && bandera != null && candi
       }).done(function(res){
         if(res == 1){
     
-          Swal.fire("Informacion","Registro Eliminado con exito","info");
-          location.reload();
+          Swal.fire({
+            icon: 'success',
+            title: 'Registro eliminado con exito',
+            showConfirmButton: false,
+            timer: 1300
+          });
+          document.getElementById("formPart").reset();
+          window.setTimeout("reacargar()",1800);
         }else{
           Swal.fire("Error","Acción fallido","error");
         }
@@ -197,8 +233,14 @@ if(nomPartido.trim() != ""  && nomCandi.trim() != "" && bandera != null && candi
       }).done(function(res){
         if(res == 1){
     
-          Swal.fire("Informacion","Registro Desactivado con exito","info");
-          location.reload();
+          Swal.fire({
+            icon: 'success',
+            title: 'Registro desactivado con exito',
+            showConfirmButton: false,
+            timer: 1300
+          });
+          document.getElementById("formPart").reset();
+          window.setTimeout("reacargar()",1800);
         }else{
           Swal.fire("Error","Acción fallido","error");
         }
@@ -219,11 +261,12 @@ if(nomPartido.trim() != ""  && nomCandi.trim() != "" && bandera != null && candi
          url : "inactivosPartidos.php"
      }).done(function(res){
          $("#tblInac").html(res);
-         
+         document.getElementById("formPart").reset();
      }).fail(function(){});
 });
 
 $(document).on("click","#regresar", function(){
+ document.getElementById("formPart").reset();
  location.reload();
 });
 
@@ -238,6 +281,13 @@ $(document).on("click","#regresar", function(){
   }).done(function(res){
       $("#activarUsu").val("");
       $("#tblInac").html(res);
+      Swal.fire({
+        icon: 'success',
+        title: 'Registro activado con exito',
+        showConfirmButton: false,
+        timer: 1300
+      });
+      document.getElementById("formPart").reset();
       
   }).fail(function(){});
 
