@@ -12,6 +12,8 @@ $(document).ready(function () {
     $("#eliPart").attr("hidden",true);
     $("#desactPart").attr("hidden",true);
     $("#ingPart").attr("hidden",false);
+    $('#seccionC').attr('hidden', false);
+    $('#seccionB').attr('hidden', false);
  });
 
  
@@ -72,6 +74,9 @@ if(nomPartido.trim() != ""  && nomCandi.trim() != "" && bandera != null && candi
   var nomCandi = $("#nomCandi").val();
   var completo = $("#completo").val();
   var idPart = $("#idPartido").val();
+  var fotoB = $("#fotoB").val();
+  var fotoC = $("#fotoC").val();
+
   var formPartido = new FormData;
   if(completo.trim() == "SI"){
     if(nomPartido.trim() != ""  && nomCandi.trim() != "" && bandera != null && candidato != null){
@@ -80,6 +85,8 @@ if(nomPartido.trim() != ""  && nomCandi.trim() != "" && bandera != null && candi
       formPartido.append("nomPartido", nomPartido);
       formPartido.append("nomCandi", nomCandi);
       formPartido.append("idPart", idPart);
+      formPartido.append("fotoB", fotoB);
+      formPartido.append("fotoC", fotoC);
       formPartido.append("accion","M1");
       $.ajax({
         type :"POST",
@@ -136,6 +143,8 @@ if(nomPartido.trim() != ""  && nomCandi.trim() != "" && bandera != null && candi
 
  $(document).on("click","#eliPart",function(){
   var idPart = $("#idPartido").val();
+  var fotoB = $("#fotoB").val();
+  var fotoC = $("#fotoC").val();
 
   Swal.fire({
     title: 'Esta seguro?',
@@ -149,7 +158,7 @@ if(nomPartido.trim() != ""  && nomCandi.trim() != "" && bandera != null && candi
     if (result.value) {
       $.ajax({
         type:"POST",
-        data:"idPart="+idPart+"&accion=E",
+        data:"idPart="+idPart+"&fotoB="+fotoB+"&fotoC="+fotoC+"&accion=E",
         url:"mantenimientoPartido.php"
       }).done(function(res){
         if(res == 1){

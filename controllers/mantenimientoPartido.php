@@ -33,18 +33,26 @@
                 $nombrePartido = $_POST["nomPartido"];
                 $nombreCamdi = $_POST["nomCandi"];
                 $idPart = $_POST["idPart"];
+                $fotoB = $_POST["fotoB"];
+                $fotoC = $_POST["fotoC"];
                 $bandera = $_FILES["bandera"]["name"];
                 $candidato = $_FILES["candidato"]["name"];
                 $ruta = "img/";
-                if(move_uploaded_file($_FILES["bandera"]["tmp_name"],$ruta.$bandera) &&
+                if (unlink($fotoB) && unlink($fotoC)){
+
+                    if(move_uploaded_file($_FILES["bandera"]["tmp_name"],$ruta.$bandera) &&
                     move_uploaded_file($_FILES["candidato"]["tmp_name"],$ruta.$candidato)){
 
-                    $proc = $partidoModel->mod1Partido($nombrePartido,$nombreCamdi,
-                    $ruta.$bandera,$ruta.$candidato,$idPart);
-                    echo $proc;
+                        $proc = $partidoModel->mod1Partido($nombrePartido,$nombreCamdi,
+                        $ruta.$bandera,$ruta.$candidato,$idPart);
+                        echo $proc;
+                    }else{
+                        echo "2";    
+                    }
                 }else{
-                    echo "2";    
+                    echo "2";
                 }
+
         break;
         case 'M2':
                 $nombrePartido = $_POST["nomPartido"];
@@ -54,9 +62,15 @@
                 echo $proc;
         break;    
         case 'E':
+                $fotoB = $_POST["fotoB"];
+                $fotoC = $_POST["fotoC"];
                 $idPart = $_POST["idPart"];
-                $proc = $partidoModel->dropPartido($idPart);
-                echo $proc;
+                if (unlink($fotoB) && unlink($fotoC)){
+                    $proc = $partidoModel->dropPartido($idPart);
+                    echo $proc;
+                }else{
+                    echo "2";
+                }
         break;  
         case 'D':
                 $idPart = $_POST["idPart"];

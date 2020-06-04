@@ -62,14 +62,15 @@
         <div class="" id="contenedor">
             <div class="">
                 <p><h3>Gestión de Partidos</h3></p>
+                
+            </div>
+            <form id="formPart" enctype="multipart/form-data">
                 <p id="textoC" hidden class="p-2 bg-danger bg-outline text-white">
                     Edición Completa.
                 </p>
                 <p id="textoB" hidden class="p-2 bg-success bg-outline text-white">
                     Edición Básica.
                 </p>
-            </div>
-            <form id="formPart" enctype="multipart/form-data">
                 <div class="form-row" id="formMantenimiento">
                     <div class="col-md-6">
                         <label for="">Nombre partido :</label>
@@ -77,13 +78,15 @@
                         id="nomPartido" require>
                         <input type="text" id="idPartido" hidden readonly>
                         <input type="text" id="completo" hidden readonly>
+                        <input type="text" id="fotoB" hidden readonly>
+                        <input type="text" id="fotoC" hidden readonly>
                     </div>
                     <div class="col-md-6">
                         <label for="">Nombre Candidato :</label>
                         <input type="text" class="form-control" placeholder="Candidato" 
                         id="nomCandi" require>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-6" id="seccionB">
                         <br>
                         <label for="">Foto Bandera :</label>
                         <div class="input-group">
@@ -98,7 +101,7 @@
                         </div>
                     </div>
                     <div class="clearfix"></div>
-                    <div class="col-md-6">
+                    <div class="col-md-6" id="seccionC">
                         <br>
                         <label for="">Foto Candidato :</label>
                         <div class="input-group">
@@ -177,17 +180,24 @@
                                      $('#nomPartido').val('<?php echo $nombrePart;?>');
                                      $('#nomCandi').val('<?php echo $nombreCand;?>');
                                      $('#completo').val('');habilitarBtn();
+                                     $('#fotoB').val('');$('#fotoC').val('');
                                      $('#textoB').attr('hidden', false);
-                                     $('#textoC').attr('hidden', true);">
+                                     $('#textoC').attr('hidden', true);
+                                     $('#seccionC').attr('hidden', true);
+                                     $('#seccionB').attr('hidden', true);">
                                 EDITAR BÁSICO
                             </button>
                             <button class="btn btn-outline-dark btn-sm col-12" 
                             onclick="$('#idPartido').val('<?php echo $id;?>');
                                      $('#nomPartido').val('<?php echo $nombrePart;?>');
                                      $('#nomCandi').val('<?php echo $nombreCand;?>');
+                                     $('#fotoB').val('<?php echo $bandera;?>');
+                                     $('#fotoC').val('<?php echo $candidato;?>');
                                      $('#completo').val('SI');habilitarBtn();
                                      $('#textoB').attr('hidden', true);
-                                     $('#textoC').attr('hidden', false);">
+                                     $('#textoC').attr('hidden', false);
+                                     $('#seccionC').attr('hidden', false);
+                                     $('#seccionB').attr('hidden', false);">
                                 EDITAR COMPLETO
                             </button>
                         </td>
