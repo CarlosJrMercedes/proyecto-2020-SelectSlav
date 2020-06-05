@@ -22,11 +22,11 @@
 
 
         function getAllUsers(){
-            $para = $this->con->query("SELECT * FROM usuarios WHERE estado= 1");
+            $para = $this->con->query("  SELECT us.*, r.rol, r.id_rol FROM usuarios us INNER JOIN rol r ON us.id_rol = r.id_rol WHERE us.estado=1");
             $r = array();
 
             while($row=$para->fetch_assoc()){
-                $us = new Usuarios($row["id_usuario"],$row["nombre_completo"],$row["id_rol"],
+                $us = new Usuarios($row["id_usuario"],$row["nombre_completo"],$row["rol"],
                 $row["usuario"],$row["contrasenia"],$row["fecha_creacion"],
                 $row["fecha_modificacion"],
                 $row["estado"]);

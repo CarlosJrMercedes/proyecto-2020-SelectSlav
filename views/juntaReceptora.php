@@ -60,7 +60,101 @@
 </header>
     <div class="container">
         <div class="" id="contenedor">
+        <div class="">
+        <p><h3>Gestión de Junta receptora</h3></p>
+    </div>
+    <div class="clearfix">
+        <div class="form-row" id="formJunta">
 
+        
+            
+            <div class="form-group col-md-6">
+                <input type="text" class="form-control" placeholder="ID" id="id" name="id" hidden readonly>
+                <label for="">Nombre Junta receptora :</label>
+                <input type="text" class="form-control" placeholder="Ingresar" name="nombre" id="nombre">
+                <input type="text" class="form-control" id="id_Junta" name="id_Junta" hidden readonly>
+            
+            </div>
+            <div class="form-group col-md-6">
+            <label for="">Centro :</label>
+            <select name="centro" id="centro" class="form-control">
+                    <option value="0" selected>SELECCIONE</option>
+                    <?php
+                        foreach($sql as $r):
+                    ?>
+                        <option value="<?php echo $r["id_centro"]; ?>"><?php echo $r["nombre"]; ?></option>
+                    <?php
+                        endforeach;
+                    ?>
+                </select>
+        </div>
+            </div>  
+            </div>
+            <div class="col-md-12">
+                <br>
+                <button id="ingJR" class="btn btn-outline-secondary btn-lg">Ingresar</button>
+                <button id="updaJunta" class="btn btn-outline-success btn-lg" hidden>Modificar</button>
+                <button id="delJunta" class="btn btn-outline-danger btn-lg" hidden>Eliminar</button>
+                <button id="desactivarJR" class="btn btn-outline-info btn-lg" hidden>Desactivar</button>
+                <button id="cancelJR" class="btn btn-outline-primary btn-lg" >Cancelar</button>
+            </div>
+        </div>
+        <br>
+        <br>
+        <button id="regresar" class="btn btn-outline-warning btn-lg" hidden>Regresar</button>
+        <div id="tblActivos">
+        <button id="verInactivos" class="btn btn-outline-dark btn-sm" >Ver Registros Inactivos</button>
+            <table class="table table-ligt" id="tblJuntas" style="text-align:center;">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>NOMBRE</th>
+                    <th>CENTRO</th>
+                    <th>CREACION</th>
+                    <th>MODIFICACIÓN</th>
+                    <th>ESTADO</th>
+                    <th>ACCIÓN</th>
+                </tr>
+                <?php
+
+                    foreach($datos as $d):
+                        $id_Junta = $d->getId_junta();
+                        $nombre = $d->getNombre();
+                        $centro = $d->getId_centro();
+                        $cNombre = $d->getcNombre();
+                        $creacion = $d->getFecha_creacion();
+                        $modificacion = $d->getFecha_modificacion();
+                        $estado = $d->getEstado();
+                ?>
+                <tr>
+                    <td><?php echo $id_Junta;?></td>
+                    <td><?php echo $nombre;?></td>
+                    
+                    <td><?php echo $cNombre;?></td>
+                    <td><?php echo $creacion;?></td>
+                    <td><?php echo $modificacion;?></td>
+                    <td><?php if($estado == 1){echo "Activo";}?></td>
+                    <td>
+                        <button class="btn btn-outline-secondary btn-lg" 
+                        onclick="habilitarBtn(); $('#nombre').val('<?php echo $nombre?>');
+                        $('#centro').val('<?php echo $centro?>');
+                        $('#id_Junta').val('<?php echo $id_Junta?>')">
+                            EDITAR
+                        </button>
+                    </td>
+                </tr>
+                
+                <?php
+                    endforeach;
+                ?>
+                  </tbody>
+            </table>
+        </div>
+        <div id="tblInac">
+        </div>
+        </div>
+    </div>
+</body>
         </div>
     </div>
 </body>
@@ -88,4 +182,5 @@
     <script src="../views/resources/src/js/sweetalert2.all.min.js"></script>
     <script src="../views/resources/src/js/fontAweson.js"></script>
     <script src="../views/resources/js/deslogueo.js"></script>
+    <script src="../views/resources/js/juntaR.js"></script>
 </html>
