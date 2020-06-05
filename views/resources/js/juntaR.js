@@ -1,5 +1,5 @@
 $(document).ready(function(){
-    $("#tblUsu").DataTable();
+    $("#tblJuntas").DataTable();
 });
 
 $(document).on("click","#cancelJR", function(){

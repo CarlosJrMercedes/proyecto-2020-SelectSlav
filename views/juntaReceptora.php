@@ -63,19 +63,17 @@
         <div class="">
         <p><h3>Gestión de Junta receptora</h3></p>
     </div>
-    <div class="clearfix">
-        <div class="form-row" id="formJunta">
-
-        
-            
+    <div class="form-row" id="formJunta">
+        <div class="">
+            </div>
             <div class="form-group col-md-6">
                 <input type="text" class="form-control" placeholder="ID" id="id" name="id" hidden readonly>
                 <label for="">Nombre Junta receptora :</label>
                 <input type="text" class="form-control" placeholder="Ingresar" name="nombre" id="nombre">
                 <input type="text" class="form-control" id="id_Junta" name="id_Junta" hidden readonly>
             
-            </div>
-            <div class="form-group col-md-6">
+            
+        
             <label for="">Centro :</label>
             <select name="centro" id="centro" class="form-control">
                     <option value="0" selected>SELECCIONE</option>
@@ -87,9 +85,8 @@
                         endforeach;
                     ?>
                 </select>
-        </div>
-            </div>  
-            </div>
+    </div>
+            
             <div class="col-md-12">
                 <br>
                 <button id="ingJR" class="btn btn-outline-secondary btn-lg">Ingresar</button>
