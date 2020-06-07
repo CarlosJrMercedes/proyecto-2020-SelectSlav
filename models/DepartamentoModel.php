@@ -30,7 +30,7 @@ class DepartamentoModel extends Conexion
 
         try {
             $sql = $this->con->prepare("INSERT INTO departamentos (nombre,
-            fecha_creacion,fecha_modificacion,estado) VALUES (?, NOW(), NOW(),1)");
+            fecha_creacion,estado) VALUES (?, NOW(),1)");
             $sql->bind_param('s',$a);
             $a = $nombre;
             $sql->execute();

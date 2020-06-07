@@ -69,7 +69,7 @@ if(nomPartido.trim() != ""  && nomCandi.trim() != "" && bandera != null && candi
         timer: 1500
       });
       document.getElementById("formPart").reset();
-      window.setTimeout("reacargar()",1800);
+      window.setTimeout("reacargar()",1400);
     }else{
       Swal.fire("Error","Acción fallido","error");
     }
@@ -117,14 +117,15 @@ if(nomPartido.trim() != ""  && nomCandi.trim() != "" && bandera != null && candi
     
         if(res == 1){
     
+          document.getElementById("formPart").reset();
           Swal.fire({
             icon: 'success',
             title: 'Registro modificado con exito',
             showConfirmButton: false,
             timer: 1300
           });
-          document.getElementById("formPart").reset();
-          window.setTimeout("reacargar()",1800);
+
+          window.setTimeout("reacargar()",1400);
         }else{
           Swal.fire("Error","Acción fallido","error");
         }
@@ -154,7 +155,7 @@ if(nomPartido.trim() != ""  && nomCandi.trim() != "" && bandera != null && candi
             timer: 1300
           });
           document.getElementById("formPart").reset();
-          window.setTimeout("reacargar()",1800);
+          window.setTimeout("reacargar()",1400);
         }else{
           Swal.fire("Error","Acción fallido","error");
         }
@@ -200,7 +201,7 @@ if(nomPartido.trim() != ""  && nomCandi.trim() != "" && bandera != null && candi
             timer: 1300
           });
           document.getElementById("formPart").reset();
-          window.setTimeout("reacargar()",1800);
+          window.setTimeout("reacargar()",1400);
         }else{
           Swal.fire("Error","Acción fallido","error");
         }
@@ -233,14 +234,14 @@ if(nomPartido.trim() != ""  && nomCandi.trim() != "" && bandera != null && candi
       }).done(function(res){
         if(res == 1){
     
+          document.getElementById("formPart").reset();
           Swal.fire({
             icon: 'success',
             title: 'Registro desactivado con exito',
             showConfirmButton: false,
             timer: 1300
           });
-          document.getElementById("formPart").reset();
-          window.setTimeout("reacargar()",1800);
+          window.setTimeout("reacargar()",1400);
         }else{
           Swal.fire("Error","Acción fallido","error");
         }

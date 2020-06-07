@@ -102,7 +102,7 @@
         <div id="tblActivos">
         <button id="verMInactivos" class="btn btn-outline-dark btn-sm" >Ver Municipios Inactivos</button>
             <table class="table table-ligt" id="tblUsu" style="text-align:center;">
-            <thead>
+            <thead Style="background-color:#313e48;color:#ffffff;">
                 <tr>
                     <th>ID</th>
                     <th>NOMBRE </th>
@@ -117,15 +117,16 @@
                 <?php
 
                     foreach($datos as $data):
-                        $id_munici = $data->getId_munici();
-                        $nombre = $data->getNombre();
-                        $dept = $data->getId_dept();
-                        $creacion = $data->getFecha_creacion();
-                        $modificacion = $data->getFecha_modificacion();
-                        $estado = $data->getEstado();
+                        $id_munici = $data["id_munici"];
+                        $nombre = $data["nombre"];
+                        $dept = $data["nombreDept"];
+                        $iddept = $data["id_dept"];
+                        $creacion = $data["fecha_creacion"];
+                        $modificacion = $data["fecha_modificacion"];
+                        $estado = $data["estado"];
                 ?>
                 <tr>
-                    <td><?php echo $id_munici;?></td>
+                    <th><?php echo $id_munici;?></th>
                     <td><?php echo $nombre;?></td>
                     <td><?php echo $dept;?></td>
                     <td><?php echo $creacion;?></td>
@@ -134,7 +135,7 @@
                     <td>
                         <button class="btn btn-outline-secondary btn-lg" 
                         onclick="habilitarBtn(); $('#nombremun').val('<?php echo $nombre?>');
-                        $('#dept').val('<?php echo $dept?>');$('#idMuni').val('<?php echo $id_munici?>');">
+                        $('#dept').val('<?php echo $iddept?>');$('#idMuni').val('<?php echo $id_munici?>');">
                             EDITAR
                         </button>
                     </td>

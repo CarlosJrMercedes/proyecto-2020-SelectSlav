@@ -25,7 +25,9 @@ function habilitarBtn(){
 
 }
 
-
+function reacargar(){
+    location.reload();
+  }
     
 
     $(document).on("click","#insertMunici", function(){
@@ -42,8 +44,13 @@ function habilitarBtn(){
             }).done(function(res){
                 if(res == 1){
     
-                    Swal.fire("Info","Registro ingresado con exito","info");
-                    location.reload();
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Registro ingresado con exito',
+                        showConfirmButton: false,
+                        timer: 1300
+                      });
+                      window.setTimeout("reacargar()",1400);
                 }else{
                     Swal.fire("Error","Algo no esta bien","error");
                 }
@@ -71,8 +78,13 @@ function habilitarBtn(){
         }).done(function(res){
             if(res == 1){
 
-                Swal.fire("Info","Registro modificado","info");
-               location.reload();
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Registro modificado con exito',
+                    showConfirmButton: false,
+                    timer: 1300
+                  });
+                  window.setTimeout("reacargar()",1400);
             }else{
                 Swal.fire("Error","Algo no esta bien","error");
             }
@@ -103,8 +115,13 @@ function habilitarBtn(){
             }).done(function(res){
                 if(res == 1){
     
-                    Swal.fire("Info","El registro se elimino con exito","success");
-                    location.reload();
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Registro eliminado con exito',
+                        showConfirmButton: false,
+                        timer: 1300
+                      });
+                      window.setTimeout("reacargar()",1400);
                 }else{
                     Swal.fire("Error","Algo no esta bien","error");
                 }
@@ -133,8 +150,13 @@ function habilitarBtn(){
             }).done(function(res){
                 if(res == 1){
     
-                    Swal.fire("Info","El registro se desactivo con exito","success");
-                    location.reload();
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Registro desactivado con exito',
+                        showConfirmButton: false,
+                        timer: 1300
+                      });
+                      window.setTimeout("reacargar()",1400);
                 }else{
                     Swal.fire("Error","Algo no esta bien","error");
                 }
@@ -173,6 +195,12 @@ function habilitarMunici(){
    }).done(function(res){
        $("#activarMunici").val("");
        $("#tblInac").html(res);
+       Swal.fire({
+        icon: 'success',
+        title: 'Registro activado con exito',
+        showConfirmButton: false,
+        timer: 1300
+      });
        
    }).fail(function(){});
 

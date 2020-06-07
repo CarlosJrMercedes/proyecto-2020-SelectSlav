@@ -107,7 +107,7 @@
         <div id="tblActivos">
         <button id="verInactivos" class="btn btn-outline-dark btn-sm" >Ver Usuarios Inactivos</button>
             <table class="table table-ligt" id="tblUsu" style="text-align:center;">
-                <thead>
+                <thead class="thead-dark">
                     <tr>
                         <th>ID</th>
                         <th>Nombre</th>
@@ -132,7 +132,7 @@
                             $estado = $d->getEstado();
                     ?>
                     <tr>
-                        <td><?php echo $id;?></td>
+                        <th><?php echo $id;?></th>
                         <td><?php echo $nombreComp;?></td>
                         <td><?php echo $rol;?></td>
                         <td><?php echo $usuario;?></td>

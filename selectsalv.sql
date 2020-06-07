@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost:3307
--- Tiempo de generación: 26-05-2020 a las 02:03:13
+-- Tiempo de generación: 07-06-2020 a las 11:17:04
 -- Versión del servidor: 10.4.8-MariaDB
 -- Versión de PHP: 7.2.23
 
@@ -19,16 +19,16 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `selectalv`
-drop database if exists selectSalv;
-create database selectSalv;
-use selectSalv;
+-- Base de datos: `selectsalv`
+--
 
 -- --------------------------------------------------------
 
 --
 -- Estructura de tabla para la tabla `centro_votacion`
---
+drop database if exists selectSalv;
+create database selectSalv;
+use selectSalv;
 
 CREATE TABLE `centro_votacion` (
   `id_centro` int(11) NOT NULL,
@@ -39,6 +39,13 @@ CREATE TABLE `centro_votacion` (
   `fecha_modificacion` datetime NOT NULL,
   `estado` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `centro_votacion`
+--
+
+INSERT INTO `centro_votacion` (`id_centro`, `nombre`, `id_munici`, `direccion`, `fecha_creacion`, `fecha_modificacion`, `estado`) VALUES
+(1, 'ARCE', 1, 'por el zoologico', '2020-06-06 02:32:41', '0000-00-00 00:00:00', 1);
 
 -- --------------------------------------------------------
 
@@ -53,6 +60,26 @@ CREATE TABLE `departamentos` (
   `fecha_modificacion` datetime NOT NULL,
   `estado` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `departamentos`
+--
+
+INSERT INTO `departamentos` (`id_dept`, `nombre`, `fecha_creacion`, `fecha_modificacion`, `estado`) VALUES
+(1, 'Ahuachapá', '2020-06-06 01:10:39', '2020-06-06 02:07:06', 1),
+(2, 'Cabañas', '2020-06-06 01:10:50', '0000-00-00 00:00:00', 1),
+(3, 'Chalatenango', '2020-06-06 01:11:00', '0000-00-00 00:00:00', 1),
+(4, 'Cuscatlán', '2020-06-06 01:11:10', '0000-00-00 00:00:00', 1),
+(5, 'La Libertad', '2020-06-06 01:11:23', '0000-00-00 00:00:00', 1),
+(6, 'La Paz', '2020-06-06 01:11:33', '0000-00-00 00:00:00', 1),
+(7, 'La Unión', '2020-06-06 01:11:45', '0000-00-00 00:00:00', 1),
+(8, 'Morazán', '2020-06-06 01:11:58', '0000-00-00 00:00:00', 1),
+(9, 'San Miguel', '2020-06-06 01:12:54', '0000-00-00 00:00:00', 1),
+(10, 'San Salvador', '2020-06-06 01:13:05', '0000-00-00 00:00:00', 1),
+(11, 'San Vicente', '2020-06-06 01:13:16', '0000-00-00 00:00:00', 1),
+(12, 'Santa Ana', '2020-06-06 01:13:26', '0000-00-00 00:00:00', 1),
+(13, 'Sonsonate', '2020-06-06 01:13:36', '0000-00-00 00:00:00', 1),
+(14, 'Usulután', '2020-06-06 01:13:46', '0000-00-00 00:00:00', 1);
 
 -- --------------------------------------------------------
 
@@ -69,6 +96,13 @@ CREATE TABLE `junta_receptora` (
   `estado` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Volcado de datos para la tabla `junta_receptora`
+--
+
+INSERT INTO `junta_receptora` (`id_junta`, `nombre`, `id_centro`, `fecha_creacion`, `fecha_modificacion`, `estado`) VALUES
+(1, 'Junta Nª 8', 1, '2020-06-07 02:04:51', '2020-06-07 02:04:51', 1);
+
 -- --------------------------------------------------------
 
 --
@@ -83,6 +117,13 @@ CREATE TABLE `municipios` (
   `fecha_modificacion` datetime NOT NULL,
   `estado` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `municipios`
+--
+
+INSERT INTO `municipios` (`id_munici`, `nombre`, `id_dept`, `fecha_creacion`, `fecha_modificacion`, `estado`) VALUES
+(1, 'San Salvador', 10, '2020-06-06 01:23:54', '2020-06-06 01:40:09', 1);
 
 -- --------------------------------------------------------
 
@@ -100,6 +141,14 @@ CREATE TABLE `partido_politico` (
   `fecha_modificacion` datetime NOT NULL,
   `estado` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `partido_politico`
+--
+
+INSERT INTO `partido_politico` (`id_partido`, `nombre_partido`, `nombre_candidato`, `foto_bandera_partido`, `foto_candidato`, `fecha_creacion`, `fecha_modificacion`, `estado`) VALUES
+(1, 'ARENA', 'Carlos Calleja', 'img/ARENACarlos Callejaarena.png', 'img/ARENACarlos Callejacc.jpg', '2020-06-06 01:15:18', '2020-06-06 01:16:34', 1),
+(2, 'FMLN', 'Hugo Martinez', 'img/FMLNHugo Martinezfmln.png', 'img/FMLNHugo Martinezhugo.png', '2020-06-07 02:44:07', '0000-00-00 00:00:00', 1);
 
 -- --------------------------------------------------------
 
@@ -142,13 +191,7 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id_usuario`, `nombre_completo`, `id_rol`, `usuario`, `contrasenia`, `fecha_creacion`, `fecha_modificacion`, `estado`) VALUES
-(1, 'Carlos Nahum Mercedes Dominguez', 1, 'CarlosJr', '40bd001563085fc35165329ea1ff5c5ecbdbbeef ', '2020-05-23 19:53:05', '2020-05-23 19:53:05', 1),
-(2, 'Jeny Odalis', 1, 'odalis', '123', '2020-05-23 19:53:05', '2020-05-25 17:27:03', 1),
-(3, 'Nahu', 1, 'asd', 'asd', '2020-05-25 17:05:16', '0000-00-00 00:00:00', 1),
-(4, 'Nahu', 1, 'asd', 'asd', '2020-05-25 17:06:15', '0000-00-00 00:00:00', 1),
-(5, 'Mercedes', 1, 'mer', '123', '2020-05-25 17:08:53', '2020-05-25 17:46:58', 1),
-(6, 'Carlos', 1, 'cjr', '123', '2020-05-25 17:10:40', '2020-05-25 17:10:40', 1),
-(7, 'Carlos', 1, 'cjr', '123', '2020-05-25 17:10:52', '2020-05-25 17:10:52', 2);
+(1, 'Carlos Nahum Mercedes Dominguez', 1, 'CarlosJr', '40bd001563085fc35165329ea1ff5c5ecbdbbeef ', '2020-05-23 19:53:05', '2020-05-23 19:53:05', 1);
 
 -- --------------------------------------------------------
 
@@ -234,31 +277,31 @@ ALTER TABLE `votos`
 -- AUTO_INCREMENT de la tabla `centro_votacion`
 --
 ALTER TABLE `centro_votacion`
-  MODIFY `id_centro` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_centro` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `departamentos`
 --
 ALTER TABLE `departamentos`
-  MODIFY `id_dept` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_dept` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT de la tabla `junta_receptora`
 --
 ALTER TABLE `junta_receptora`
-  MODIFY `id_junta` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_junta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `municipios`
 --
 ALTER TABLE `municipios`
-  MODIFY `id_munici` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_munici` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `partido_politico`
 --
 ALTER TABLE `partido_politico`
-  MODIFY `id_partido` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_partido` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `rol`

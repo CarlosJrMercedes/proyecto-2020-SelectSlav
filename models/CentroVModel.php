@@ -5,19 +5,15 @@
     class CentroVModel extends Conexion{ 
 
         function getAllCentroV(){
-            $para = $this->con->query("SELECT cv.*,m.nombre as nombreCentro, m.id_munici
-             FROM centro_votacion cv INNER JOIN municipios m ON cv.id_munici = m.id_munici WHERE cv.estado=1");
-            $r = array();
+            $para = $this->con->query("SELECT c.id_centro,c.nombre,c.id_munici,
+            m.nombre as noombreMuni,c.direccion,c.fecha_creacion,
+            c.fecha_modificacion,c.estado FROM centro_votacion c INNER JOIN
+            municipios m WHERE C.id_munici = M.id_munici AND C.estado = 1");
+           
 
-            while($row=$para->fetch_assoc()){
-                $cen = new CentroV($row["id_centro"],$row["nombre"],$row["nombreCentro"],
-                $row["direccion"],$row["fecha_creacion"],
-                $row["fecha_modificacion"],
-                $row["estado"]);
-                $r[]=$cen;
-            }
-            return $r;
-        } 
+           return $para;
+
+            } 
 
 
         function getAllCentroVInact(){

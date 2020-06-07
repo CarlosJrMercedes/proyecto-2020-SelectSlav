@@ -135,7 +135,7 @@
         <div id="activos" style="">
             <button id="verInactivos" class="btn btn-outline-dark btn-sm" >Ver Usuarios Inactivos</button>
             <table class="table table-ligt" id="tblPart" style="text-align:center;">
-                <thead>
+                <thead Style="background-color:#313e48;color:#ffffff;">
                     <tr>
                         <th>ID</th>
                         <th>Nombre Partido</th>
@@ -162,7 +162,7 @@
                             $estado = $d->getEstado();
                     ?>
                     <tr>
-                        <td><?php echo $id;?></td>
+                        <th><?php echo $id;?></th>
                         <td><?php echo $nombrePart;?></td>
                         <td><?php echo $nombreCand;?></td>
                         <td>

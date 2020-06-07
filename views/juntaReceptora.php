@@ -71,11 +71,10 @@
                 <label for="">Nombre Junta receptora :</label>
                 <input type="text" class="form-control" placeholder="Ingresar" name="nombre" id="nombre">
                 <input type="text" class="form-control" id="id_Junta" name="id_Junta" hidden readonly>
-            
-            
-        
-            <label for="">Centro :</label>
-            <select name="centro" id="centro" class="form-control">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="">Centro :</label>
+                <select name="centro" id="centro" class="form-control">
                     <option value="0" selected>SELECCIONE</option>
                     <?php
                         foreach($sql as $r):
@@ -85,7 +84,7 @@
                         endforeach;
                     ?>
                 </select>
-    </div>
+            </div>
             
             <div class="col-md-12">
                 <br>
@@ -102,7 +101,7 @@
         <div id="tblActivos">
         <button id="verInactivos" class="btn btn-outline-dark btn-sm" >Ver Registros Inactivos</button>
             <table class="table table-ligt" id="tblJuntas" style="text-align:center;">
-            <thead>
+            <thead Style="background-color:#313e48;color:#ffffff;">
                 <tr>
                     <th>ID</th>
                     <th>NOMBRE</th>
@@ -112,6 +111,8 @@
                     <th>ESTADO</th>
                     <th>ACCIÓN</th>
                 </tr>
+            </thead>
+            <tbody>
                 <?php
 
                     foreach($datos as $d):
@@ -124,7 +125,7 @@
                         $estado = $d->getEstado();
                 ?>
                 <tr>
-                    <td><?php echo $id_Junta;?></td>
+                    <th><?php echo $id_Junta;?></th>
                     <td><?php echo $nombre;?></td>
                     
                     <td><?php echo $cNombre;?></td>

@@ -87,8 +87,8 @@
         <button id="regresar" class="btn btn-outline-warning btn-lg" hidden>Regresar</button>
         <div id="tblActivos">
         <button id="verInactivos" class="btn btn-outline-dark btn-sm" >Ver Departamentos Inactivos</button>
-            <table class="table table-ligt" id="tblUsu" style="text-align:center;">
-            <thead>
+            <table class="table table-ligt" id="tblDept" style="text-align:center;">
+            <thead Style="background-color:#313e48;color:#ffffff;">
                 <tr>
                     <th>ID</th>
                     <th>NOMBRE</th>
@@ -97,6 +97,8 @@
                     <th>ESTADO</th>
                     <th>ACCIÓN</th>
                 </tr>
+            </thead>
+            </tbody>
                 <?php
 
                     foreach($datos as $d):
@@ -107,15 +109,16 @@
                         $estado = $d->getEstado();
                 ?>
                 <tr>
-                    <td><?php echo $idDept;?></td>
+                    <th><?php echo $idDept;?></th>
                     <td><?php echo $nombre;?></td>
                     <td><?php echo $creacion;?></td>
                     <td><?php echo $modificacion;?></td>
                     <td><?php if($estado == 1){echo "Activo";}?></td>
                     <td>
                         <button class="btn btn-outline-secondary btn-lg" 
-                        onclick="habilitarBtn(); $('#nombrese').val('<?php echo $nombre?>');
-                        $('#id').val('<?php echo $idDept?>')">
+                        onclick="habilitarBtn();
+                         $('#nombrese').val('<?php echo $nombre?>');
+                        $('#id').val('<?php echo $idDept?>');">
                             EDITAR
                         </button>
                     </td>

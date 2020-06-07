@@ -27,7 +27,7 @@
 <br>
 <input type="text" id="activarMunici" readonly hidden>
 <table class="table table-ligt" id="tblMuniciInact" style="text-align:center;">
-                <thead>
+                <thead Style="background-color:#313e48;color:#ffffff;">
                     <tr>
                         <th>ID</th>
                         <th>NOMBRE </th>

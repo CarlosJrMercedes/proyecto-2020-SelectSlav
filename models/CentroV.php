@@ -4,18 +4,20 @@
         private $id_centro;
         private $nombre;
         private $id_munici;
+        private $nombreMuni;
         private $direccion;
         private $fecha_creacion;
         private $fecha_modificacion;
         private $estado;
 
 
-        function __construct($id_centro, $nombre, $id_munici, $direccion,
+        function __construct($id_centro, $nombre, $id_munici,$nombreMuni, $direccion,
         $fecha_creacion, $fecha_modificacion, $estado){
 
             $this->id_centro = $id_centro;
             $this->nombre = $nombre;
             $this->id_munici = $id_munici;
+            $this->nombreMuni = $nombreMuni;
             $this->direccion = $direccion;
             $this->fecha_creacion = $fecha_creacion;
             $this->fecha_modificacion = $fecha_modificacion;
@@ -39,6 +41,11 @@
         function getId_munici(){
             return $this->id_munici;
         }
+
+        function getNombreMuni(){
+            return $this->id_munici;
+        }
+
         function setId_munici($id_munici){
             $this->id_munici = $id_munici;
         }

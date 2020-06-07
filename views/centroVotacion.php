@@ -107,7 +107,7 @@
         <div id="tablaData">
         <button id="verInactivos" class="btn btn-outline-dark btn-sm" >Ver Inactivos</button>
             <table class="table table-ligt" id="tblCentroV">
-                <thead>
+                <thead Style="background-color:#313e48;color:#ffffff;">
                     <tr>
                         <th>ID</th>
                         <th>Nombre</th>
@@ -122,18 +122,19 @@
                 <tbody>
                     <?php  
                         foreach($centros as $d):
-                            $id = $d->getId_centro();
-                            $nombreComp = $d->getNombre();
-                            $muicipio = $d->getId_munici();
-                            $direccion = $d->getDireccion();
-                            $creacion = $d->getFecha_creacion();
-                            $modificacion = $d->getFecha_modificacion();
-                            $estado = $d->getEstado();
+                            $id = $d["id_centro"];
+                            $nombreComp = $d["nombre"];
+                            $muicipio = $d["id_munici"];
+                            $nombreMuni = $d["noombreMuni"];
+                            $direccion = $d["direccion"];
+                            $creacion = $d["fecha_creacion"];
+                            $modificacion = $d["fecha_modificacion"];
+                            $estado = $d["estado"];
                         ?>
                         <tr>
-                        <td><?php echo $id;?></td>
+                        <th><?php echo $id;?></th>
                         <td><?php echo $nombreComp;?></td>
-                        <td><?php echo $muicipio;?></td>
+                        <td><?php echo $nombreMuni;?></td>
                         <td><?php echo $direccion;?></td>
                         <td><?php echo $creacion;?></td>
                         <td><?php echo $modificacion;?></td>

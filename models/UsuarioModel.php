@@ -37,7 +37,7 @@
 
 
         function getAllUsersInact(){
-            $para = $this->con->prepare("SELECT * FROM usuarios WHERE estado= 2");
+            $para = $this->con->query("SELECT * FROM usuarios WHERE estado= 2");
             $r = array();
 
             while($row=$para->fetch_assoc()){

@@ -7,14 +7,8 @@ class MunicipioModel extends Conexion
     function getAllMunici()
     {
         $m = $this->con->query("SELECT m.*,d.nombre as nombreDept,d.id_dept FROM municipios m INNER JOIN departamentos d ON m.id_dept = d.id_dept WHERE m.estado= 1");
-        $q = array();
-        while($fila=$m->fetch_assoc())
-        {
-            $muni = new Municipios($fila["id_munici"],$fila["nombre"],$fila["nombreDept"],$fila["fecha_creacion"],$fila["fecha_modificacion"],
-            $fila["estado"]);
-            $q[]=$muni;
-        }
-        return $q;
+       
+        return $m;
     }
 
     function getAllMuniciInactivos()
@@ -138,6 +132,12 @@ class MunicipioModel extends Conexion
     function getAllDept()
     {
         $sql = $this->con->query("SELECT id_dept,nombre FROM departamentos WHERE estado =1");
+        
+        return $sql;
+    }
+    function getAllImg()
+    {
+        $sql = $this->con->query("SELECT id_partido, nombre_partido, foto_bandera_partido, foto_candidato FROM partido_politico WHERE estado = 1");
         
         return $sql;
     }

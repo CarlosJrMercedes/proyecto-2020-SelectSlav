@@ -27,7 +27,7 @@
 <br>
 <input type="text" id="habilitarJunta" readonly hidden>
 <table class="table table-ligt" id="tblJuntasInact" style="text-align:center;">
-                <thead>
+                <thead Style="background-color:#313e48;color:#ffffff;">
                 <tr>
                     <th>ID</th>
                     <th>NOMBRE</th>
