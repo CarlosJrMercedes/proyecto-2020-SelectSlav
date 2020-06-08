@@ -36,12 +36,15 @@
         }
 
 
+
+
         function getAllUsersInact(){
             $para = $this->con->query("SELECT * FROM usuarios WHERE estado= 2");
             $r = array();
 
             while($row=$para->fetch_assoc()){
-                $us = new Usuarios($row["id_usuario"],$row["nombre_completo"],$row["id_rol"],
+                $us = new Usuarios($row["id_usuario"],$row["nombre_completo"],
+                $row["id_rol"],
                 $row["usuario"],$row["contrasenia"],$row["fecha_creacion"],
                 $row["fecha_modificacion"],
                 $row["estado"]);
@@ -49,6 +52,10 @@
             }
             return $r;
         }
+
+
+
+
 
         function getAllRol(){
             $sql = $this->con->query("SELECT id_rol,rol FROM rol WHERE estado =1");
@@ -64,7 +71,8 @@
         function insertUsu($nombre,$rol,$usu,$contra){
             try {
                 $sql = $this->con->prepare("INSERT INTO USUARIOS(nombre_completo,
-                id_rol,usuario,contrasenia,fecha_creacion,estado) VALUES (?, ?, ?, ?,NOW(),1)");
+                id_rol,usuario,contrasenia,fecha_creacion,estado) 
+                VALUES (?, ?, ?, ?,NOW(),1)");
                 $sql->bind_param('siss',$a,$b,$c,$d);
                 $a = $nombre;
                 $b = $rol;

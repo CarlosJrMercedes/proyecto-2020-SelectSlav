@@ -10,6 +10,8 @@
     <link href="../views/resources/src/css/bootstrap.css">
     <link href="../views/resources/src/css/dataTables.bootstrap4.min.css">
     <link href="../views/resources/src/css/responsive.bootstrap4.min.css">
+    <link href="../views/resources/src/css/bootstrap-select.min.css">
+    <link href="../views/resources/src/css/tail.select-default.min.css">
     <link href="../views/resources/css/style.css">
 </head>
 <body style="padding-buttom:5%;background-color:#313e48;">
@@ -168,9 +170,10 @@
                 </b>
                 </label>
             </font>
-            <input type="text" id="dui" class="form-control sm" 
-            placeholder="12125986-8">
+            <input type="text" id="dui" class="form-control form-control-sm" placeholder=".....">
             <input type="text" id="idVoto" readonly hidden>
+            <input type="text" id="fotoVoto" readonly hidden>
+            <input type="text" id="nombreP" readonly hidden>
         </div>
         <div class="col-md-6">
             <font face="Bell MT" color="#0000">
@@ -206,6 +209,7 @@
             </font>
             <select class="js-example-basic-single form-control" 
             name="muni" id="muni">
+            <option value="0"><h6>SELECCIONE</h6></option>
                 
             </select>
         </div>
@@ -220,6 +224,7 @@
             </font>
             <select class="js-example-basic-single form-control" 
             name="cV" id="cV">
+            <option value="0"><h6>SELECCIONE</h6></option>
                 
             </select>
         </div>
@@ -232,9 +237,8 @@
                     </b>
                 </label>
             </font>
-            <select class="js-example-basic-single form-control" 
-            name="jR" id="jR">
-                
+            <select name="jR" id="jR" class="js-example-basic-single form-control">
+                <option value="0"><h6>SELECCIONE</h6></option>
             </select>
             
         <br>
@@ -261,7 +265,9 @@
     
             <div class="col-md-2 bander" style="text-align:center;" hidden>
             <button class="btn btn-outline-dark" id="voto" type="button"
-            onclick="$('#idVoto').val('<?php echo$idPartido?>')">
+            onclick="$('#idVoto').val('<?php echo$idPartido?>');
+                     $('#fotoVoto').val('<?php echo$bandera?>');
+                     $('#nombreP').val('<?php echo$nombreP?>')">
                 <img src="<?php echo $bandera;?>" alt="" width="150px" 
                 heigth="150px">
                 <font face="Bell MT" color="#ffffff">
@@ -308,6 +314,7 @@
     <script src="../views/resources/src/js/responsive.bootstrap4.min.js"></script>
     <script src="../views/resources/src/js/sweetalert2.all.min.js"></script>
     <script src="../views/resources/src/js/fontAweson.js"></script>
+    <script src="../views/resources/src/js/bootstrap-select.min.js"></script>
     <script src="../views/resources/js/index.js"></script>
     <script src="../views/resources/js/login.js"></script>
 
