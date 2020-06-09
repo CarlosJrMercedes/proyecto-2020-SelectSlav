@@ -84,7 +84,7 @@ $(document).ready(function(){
     $(document).on("click","#voto",function(){
 
         var valDui = /^\d{8}-\d$/;
-        var idVoto = $("#idVoto").val();
+        var idPartido = $("#idPartido").val();
         var dui = $("#dui").val();
         var dept = $("#dept").val();
         var muni = $("#muni").val();
@@ -92,7 +92,6 @@ $(document).ready(function(){
         var junta = $("#jR").val();
         var bandera = $("#fotoVoto").val();
         var nombreP = $("#nombreP").val();
-
         if(dept.trim() != "0" && dept.trim() != "0" && muni.trim() != "0" 
         && centro.trim() != "0" && junta.trim() != "0" && valDui.test(dui)){
 
@@ -106,15 +105,60 @@ $(document).ready(function(){
                 confirmButtonText: 'Si, le dare mi voto!'
               }).then((result) => {
                 if (result.value) {
-                    Swal.fire({
-                    icon: 'success',
-                    title: 'Le a dado su voto a '+ nombreP,
-                    showConfirmButton: false,
-                    timer: 1300
+
+
+                    $.ajax({
+                        type: "POST",
+                        url: "selectIndex.php",
+                        data: "verificarDui=si"+"&dui="+dui
+                    }).done(function(res){
+
+                        if(res == 0){
+
+                            $.ajax({
+                                type: "POST",
+                                url: "selectIndex.php",
+                                data: "insertVoto=si&dui="+dui+"&muni="+muni+"&junta="+junta+"&idPartido="+idPartido
+                            }).done(function(res){
+                                if(res == 1){
+                                    Swal.fire({
+                                    icon: 'success',     
+                                    title: 'Le a dado su voto a '+ nombreP,
+                                    showConfirmButton: false,
+                                    timer: 1500
+                                    });
+                                    $("#dui").val("");
+                                    $("#dept").val("0");
+                                    window.setTimeout("reacargar()",1599);
+                                }else{
+                                    Swal.fire({
+                                        icon: 'error',     
+                                        title: 'Surgio un error al realizar la acción',
+                                        showConfirmButton: false,
+                                        timer: 1500
+                                    });
+                                    $("#dui").val("");
+                                    $("#dept").val("0");
+                                    window.setTimeout("reacargar()",1599);
+                                }
+
+                            }).fail(function(){
+
+                            });
+                            
+                            // Swal.fire("Información","hasta aca estamos bien","warning");
+                            
+                        }else{
+                            Swal.fire("Error","Este DUI ya ha ejercido su derecho","error");
+                        }
+
+                    }).fail(function(){
+
                     });
-                    $("#dui").val("");
-                    $("#dept").val("0");
-                    window.setTimeout("reacargar()",1400);
+
+
+
+                    
                 }
               });
 

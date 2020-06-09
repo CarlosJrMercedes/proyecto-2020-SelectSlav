@@ -21,6 +21,56 @@
             return $sql;
         }
 
+        function verificarDui($dui){
+            try {
+                $sql = $this->con->prepare("SELECT dui_votante FROM votos WHERE dui_votante = ?");
+                $sql->bind_param('s',$a);
+                $a = $dui;
+                $sql->execute();
+                $result = $sql->get_result();
+                $r = $result->fetch_assoc();
+                if($r != null){
+                    return 1;
+                }
+                else{
+                    return 0;
+                }
+            } catch (Exception $ex) {
+                return $ex;
+            }
+            finally{
+                $sql->close();
+            }
+            
+        }
+
+        function insertVoto($dui,$muni,$junta,$partido){
+            try {
+                $sql = $this->con->prepare("INSERT INTO votos(dui_votante,
+                id_munici,id_junta,id_partido,fecha_creacion,estado) 
+                VALUES (?, ?, ?, ?,NOW(),1)");
+                $sql->bind_param('siii',$a,$b,$c,$d);
+                $a = $dui;
+                $b = $muni;
+                $c = $junta;
+                $d = $partido;
+                if($sql->execute()){
+                    return 1;
+                }
+                else{
+                    return 0;
+                }
+
+            } catch (Exception $ex) {
+                return $ex;
+            }
+            finally{
+                $sql->close();
+            }
+        }
+
+
+
     }
 
 

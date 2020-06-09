@@ -59,4 +59,24 @@
         }
     }
 
+    if(isset($_POST["verificarDui"]) != null){
+        $dui = $_POST["dui"];
+
+        $duiVal = $objIndex->verificarDui($dui);
+        echo  $duiVal;
+        // var_dump($duiVal);
+        // die();
+        
+    }
+
+    if(isset($_POST["insertVoto"]) != null){
+        $dui = $_POST["dui"];
+        $muni = $_POST["muni"];
+        $junta = $_POST["junta"];
+        $partido = $_POST["idPartido"];
+
+        $result = $objIndex->insertVoto($dui,$muni,$junta,$partido);
+        echo $result;
+    }
+
 ?>

@@ -171,7 +171,7 @@
                 </label>
             </font>
             <input type="text" id="dui" class="form-control form-control-sm" placeholder=".....">
-            <input type="text" id="idVoto" readonly hidden>
+            <input type="text" id="idPartido" readonly hidden>
             <input type="text" id="fotoVoto" readonly hidden>
             <input type="text" id="nombreP" readonly hidden>
         </div>
@@ -264,8 +264,8 @@
         ?>
     
             <div class="col-md-2 bander" style="text-align:center;" hidden>
-            <button class="btn btn-outline-dark" id="voto" type="button"
-            onclick="$('#idVoto').val('<?php echo$idPartido?>');
+            <button class="btn btn-outline-dark btn-lg" id="voto" type="button"
+            onclick="$('#idPartido').val('<?php echo$idPartido?>');
                      $('#fotoVoto').val('<?php echo$bandera?>');
                      $('#nombreP').val('<?php echo$nombreP?>')">
                 <img src="<?php echo $bandera;?>" alt="" width="150px" 

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost:3307
--- Tiempo de generación: 07-06-2020 a las 11:17:04
+-- Tiempo de generación: 09-06-2020 a las 03:34:14
 -- Versión del servidor: 10.4.8-MariaDB
 -- Versión de PHP: 7.2.23
 
@@ -26,9 +26,11 @@ SET time_zone = "+00:00";
 
 --
 -- Estructura de tabla para la tabla `centro_votacion`
+--
 drop database if exists selectSalv;
 create database selectSalv;
 use selectSalv;
+
 
 CREATE TABLE `centro_votacion` (
   `id_centro` int(11) NOT NULL,
@@ -148,7 +150,9 @@ CREATE TABLE `partido_politico` (
 
 INSERT INTO `partido_politico` (`id_partido`, `nombre_partido`, `nombre_candidato`, `foto_bandera_partido`, `foto_candidato`, `fecha_creacion`, `fecha_modificacion`, `estado`) VALUES
 (1, 'ARENA', 'Carlos Calleja', 'img/ARENACarlos Callejaarena.png', 'img/ARENACarlos Callejacc.jpg', '2020-06-06 01:15:18', '2020-06-06 01:16:34', 1),
-(2, 'FMLN', 'Hugo Martinez', 'img/FMLNHugo Martinezfmln.png', 'img/FMLNHugo Martinezhugo.png', '2020-06-07 02:44:07', '0000-00-00 00:00:00', 1);
+(2, 'FMLN', 'Hugo Martinez', 'img/FMLNHugo Martinezfmln.png', 'img/FMLNHugo Martinezhugo.png', '2020-06-07 02:44:07', '0000-00-00 00:00:00', 1),
+(3, 'PDC', 'PDC', 'img/PDCPDCpdc.jpg', 'img/PDCPDCpdc.jpg', '2020-06-08 03:30:36', '0000-00-00 00:00:00', 1),
+(4, 'NUEVAS IDEAS', 'Nayib Bukele', 'img/NUEVAS IDEASNayib Bukelenuevas ideas.jpg', 'img/NUEVAS IDEASNayib Bukelenayib.jpg', '2020-06-08 03:31:06', '0000-00-00 00:00:00', 1);
 
 -- --------------------------------------------------------
 
@@ -209,6 +213,14 @@ CREATE TABLE `votos` (
   `fecha_modificacion` datetime NOT NULL,
   `estado` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `votos`
+--
+
+INSERT INTO `votos` (`id_voto`, `dui_votante`, `id_munici`, `id_junta`, `id_partido`, `fecha_creacion`, `fecha_modificacion`, `estado`) VALUES
+(1, '00612284-2', 1, 1, 4, '2020-06-08 19:24:43', '0000-00-00 00:00:00', 1),
+(2, '05598616-2', 1, 1, 4, '2020-06-08 19:26:12', '0000-00-00 00:00:00', 1);
 
 --
 -- Índices para tablas volcadas
@@ -301,7 +313,7 @@ ALTER TABLE `municipios`
 -- AUTO_INCREMENT de la tabla `partido_politico`
 --
 ALTER TABLE `partido_politico`
-  MODIFY `id_partido` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_partido` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `rol`
@@ -319,7 +331,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `votos`
 --
 ALTER TABLE `votos`
-  MODIFY `id_voto` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_voto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Restricciones para tablas volcadas
