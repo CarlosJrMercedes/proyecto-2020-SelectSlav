@@ -55,7 +55,7 @@
                     </div>   
 
                 </div>
-            <!-- </div> -->
+            
         </nav>
 </header>
 <div class="clarfix"></div>
@@ -86,7 +86,20 @@
         <br>
         <button id="regresar" class="btn btn-outline-warning btn-lg" hidden>Regresar</button>
         <div id="tblActivos">
+        
+        <form action="../controllers/reporteDepartamento.php" method="POST" target="_blank">
+        <div class="col-md-6">
+        <input type="submit" class="btn btn-outline-dark btn-sm" value="Generar reporte departamento">
+        
+        </form
+   <br>
+   <br>
+
+   </div>
+        <br>
+        <div class="col-md-6">
         <button id="verInactivos" class="btn btn-outline-dark btn-sm" >Ver Departamentos Inactivos</button>
+        </div>
             <table class="table table-ligt" id="tblDept" style="text-align:center;">
             <thead Style="background-color:#313e48;color:#ffffff;">
                 <tr>

@@ -97,10 +97,21 @@
         </div>
         <br>
         <br>
-        <br>
+      
         <button id="regresar" class="btn btn-outline-warning btn-lg" hidden>Regresar</button>
         <div id="tblActivos">
+        <form action="../controllers/reporteMunicipio.php" method="POST" target="_blank">
+        <div class="col-md-6">
+        <input type="submit" class="btn btn-outline-dark btn-sm" value="Generar reporte municipio">
+        </div>
+        </form
+   <br>
+   <br>
+   
+<div class="col-md-6">
+
         <button id="verMInactivos" class="btn btn-outline-dark btn-sm" >Ver Municipios Inactivos</button>
+     </div>   
             <table class="table table-ligt" id="tblUsu" style="text-align:center;">
             <thead Style="background-color:#313e48;color:#ffffff;">
                 <tr>

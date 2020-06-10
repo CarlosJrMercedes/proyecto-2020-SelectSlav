@@ -55,12 +55,35 @@
                     </div>   
 
                 </div>
-            <!-- </div> -->
+           
         </nav>
 </header>
     <div class="container">
         <div class="" id="contenedor">
-
+ <!-- </div> -->
+ <br>
+ <form action="../controllers/reporteVotosPartido.php" method="POST" target="_blank">
+ <div class="col-md-6">
+                        <label for="">Eliga Partido :</label>
+                        <select name="idPartido" id="idPartido" class="form-control" required>
+                    <option value="" >SELECCIONE</option>
+                    <?php
+                        foreach($sql as $p):
+                    ?>
+                        
+                        <option value="<?php echo $p["id_partido"]; ?>"><?php echo $p["nombre_partido"]; ?></option>
+                    <?php
+                        endforeach;
+                    ?>
+                </select>
+                    </div>
+                        <br>
+                    <input type="submit" class="btn btn-outline-secondary btn-lg" value="Generar reporte de votos">
+                    
+                    
+                    </form>
+                    
+                    
         </div>
     </div>
 </body>

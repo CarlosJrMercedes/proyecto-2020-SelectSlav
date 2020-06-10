@@ -129,11 +129,20 @@
             </form>
             <br>
             <br>
-            <br>
+            
         </div>
         <button id="regresar" class="btn btn-outline-warning btn-lg" hidden>Regresar</button>
         <div id="activos" style="">
+        <form action="../controllers/reportePartido.php" method="POST" target="_blank">
+        <div class="col-md-6">
+        <input type="submit" class="btn btn-outline-dark btn-sm" value="Generar reporte Partidos">
+        </div>
+        </form
+   <br>
+   <br>
+    <div class="col-md-6">
             <button id="verInactivos" class="btn btn-outline-dark btn-sm" >Ver Usuarios Inactivos</button>
+            </div>
             <table class="table table-ligt" id="tblPart" style="text-align:center;">
                 <thead Style="background-color:#313e48;color:#ffffff;">
                     <tr>
