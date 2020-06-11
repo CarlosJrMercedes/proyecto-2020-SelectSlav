@@ -105,7 +105,7 @@
         <br>
         <button id="regresar" class="btn btn-outline-warning btn-lg" hidden>Regresar</button>
         <div id="tblActivos">
-        <button id="verInactivos" class="btn btn-outline-dark btn-sm" >Ver Usuarios Inactivos</button>
+            <button id="verInactivos" class="btn btn-outline-dark btn-sm" >Ver Usuarios Inactivos</button>
             <table class="table table-ligt" id="tblUsu" style="text-align:center;">
                 <thead class="thead-dark">
                     <tr>
@@ -164,7 +164,7 @@
 
   <!-- Copyright -->
   <div class="footer-copyright text-center py-3"><font color="#ffffff">© 2020 Copyright:</font>
-    <a href="#"> SelectSalv S.A de C.v</a>
+    <a href="#"> SelectSalv S.A de C.V</a>
   </div>
   <!-- Copyright -->
 

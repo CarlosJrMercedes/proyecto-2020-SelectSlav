@@ -21,7 +21,7 @@
     <link href="../views/resources/src/css/responsive.bootstrap4.min.css">
     <link href="../views/resources/css/style.css">
 </head>
-<body>
+<body style="background-color: #6f787f">
 <header>
 <nav class="navbar navbar-expand-lg navbar-light" style="background-color:  #313e48;">
             <!-- <div class="collapse navbar-collapse" id="navbarSupportedContent"> -->
@@ -55,17 +55,14 @@
                     </div>   
 
                 </div>
-           
+
         </nav>
 </header>
-    <div class="container">
-        <div class="" id="contenedor">
- <!-- </div> -->
- <br>
- <form action="../controllers/reporteVotosPartido.php" method="POST" target="_blank">
- <div class="col-md-6">
-                        <label for="">Eliga Partido :</label>
-                        <select name="idPartido" id="idPartido" class="form-control" required>
+    <div class="container" >
+        <form action="../controllers/reporteVotosPartido.php" method="POST" target="_blank">
+            <div class="col-md-6">
+                <label for="">Eliga Partido :</label>
+                <select name="idPartido" id="idPartido" class="form-control" required>
                     <option value="" >SELECCIONE</option>
                     <?php
                         foreach($sql as $p):
@@ -76,15 +73,11 @@
                         endforeach;
                     ?>
                 </select>
-                    </div>
-                        <br>
-                    <input type="submit" class="btn btn-outline-secondary btn-lg" value="Generar reporte de votos">
-                    
-                    
-                    </form>
-                    
-                    
-        </div>
+            <br>
+            <input type="submit" class="btn btn-outline-dark btn-lg" 
+            value="Generar reporte de votos">      
+            </div>
+        </form>
     </div>
 </body>
 <!-- Footer -->
@@ -92,9 +85,60 @@
 
   <!-- Copyright -->
   <div class="footer-copyright text-center py-3"><font color="#ffffff">© 2020 Copyright:</font>
-    <a href="#"> SelectSalv S.A de C.v</a>
+    <a href="#"> SelectSalv S.A de C.V</a>
   </div>
-  <!-- Copyright -->
+  <!-- Copyright --> 
+    <div id="tblActivos">
+        <button id="verInactivos" class="btn btn-outline-dark btn-sm" >Ver Usuarios Inactivos</button>
+        <table class="table table-ligt" id="tblUsu" style="text-align:center;">
+            <thead class="thead-dark">
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>ROL</th>
+                    <th>USUARIO</th>
+                    <th>CREACIÓN</th>
+                    <th>MODIFICACIÓN</th>
+                    <th>ESTADO</th>
+                    <th>ACCIÓN</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+
+                    foreach($datos as $d):
+                        $id = $d->getId_usuario();
+                        $nombreComp = $d->getNombre_completo();
+                        $rol = $d->getId_rol();
+                        $usuario = $d->getUsuario();
+                        $creacion = $d->getFecha_creacion();
+                        $modificacion = $d->getFecha_modificacion();
+                        $estado = $d->getEstado();
+                ?>
+                <tr>
+                    <th><?php echo $id;?></th>
+                    <td><?php echo $nombreComp;?></td>
+                    <td><?php echo $rol;?></td>
+                    <td><?php echo $usuario;?></td>
+                    <td><?php echo $creacion;?></td>
+                    <td><?php echo $modificacion;?></td>
+                    <td><?php if($estado == 1){echo "Activo";} ?></td>
+                    <td>
+                        <button class="btn btn-outline-secondary btn-lg" 
+                        onclick="habilitarBtn();$('#rol').val('<?php echo $rol?>');
+                                $('#nombre').val('<?php echo $nombreComp?>');
+                                $('#id').val('<?php echo $id?>');
+                                $('#usuario').val('<?php echo $usuario?>');">
+                            EDITAR
+                        </button>
+                    </td>
+                </tr>
+                <?php
+                    endforeach;
+                ?>
+            </tbody>
+        </table>
+    </div>
 
 </footer>
 <!-- Footer -->

@@ -102,13 +102,17 @@
                  WHERE id_partido = ?");
                 $sql->bind_param('i',$a);
                 $a = $id;
-                $sql->execute();
                 
+
+                if($sql->execute()){
+
+                    return 1;
+                }
             } catch (Wxwction $ex) {
                 return $ex;
             } finally{
                 $sql->close();
-                return 1;
+               
             }
         }
 

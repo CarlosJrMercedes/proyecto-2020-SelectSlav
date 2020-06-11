@@ -65,8 +65,10 @@
                 $fotoB = $_POST["fotoB"];
                 $fotoC = $_POST["fotoC"];
                 $idPart = $_POST["idPart"];
-                if (unlink($fotoB) && unlink($fotoC)){
-                    $proc = $partidoModel->dropPartido($idPart);
+                $proc = $partidoModel->dropPartido($idPart);
+                if ($proc == 1){
+                    unlink($fotoB);
+                    unlink($fotoC);
                     echo $proc;
                 }else{
                     echo "2";

@@ -152,5 +152,13 @@ class MunicipioModel extends Conexion
 
     }
 
+    function totalVotos(){
+
+        $sql = $this->con->query("SELECT count(*) AS totalVotos FROM votos");
+
+        return $sql;
+
+    }
+
 }
 ?>

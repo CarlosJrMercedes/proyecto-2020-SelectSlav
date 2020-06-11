@@ -161,7 +161,7 @@
 
   <!-- Copyright -->
   <div class="footer-copyright text-center py-3"><font color="#ffffff">© 2020 Copyright:</font>
-    <a href="#"> SelectSalv S.A de C.v</a>
+    <a href="#"> SelectSalv S.A de C.V</a>
   </div>
   <!-- Copyright -->
 

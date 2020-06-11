@@ -5,8 +5,17 @@
     $images = $obj1->getAllImg();
     $selectDept = $obj1->getAllDept();
     $data = $obj1->graficas();
+    $totalVotos = $obj1->totalVotos();
     $partido = "";
     $votos = "";
+    $tVotos=0;
+
+
+  foreach($totalVotos as $tV):
+    $tVotos= $tV["totalVotos"];
+  endforeach;
+  echo $tVotos;
+
 
     foreach($data as $d):
         $partido.= "'".$d["nombre_partido"]."',";

@@ -22,8 +22,8 @@
     <link href="../views/resources/css/style.css">
 </head>
 <body>
-<header>
-<nav class="navbar navbar-expand-lg navbar-light" style="background-color:  #313e48;">
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light" style="background-color:  #313e48;">
             <!-- <div class="collapse navbar-collapse" id="navbarSupportedContent"> -->
                 <div class="navbar-nav mr-auto">
                     <img src="../views/resources/img/logotipo.png" width="100px" heigth="100px" class="rounded float-left">
@@ -49,7 +49,7 @@
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuEnlace2">
                         <button class="dropdown-item" data-toggle="modal"
                         data-target="#exampleModal" data-whatever="@nombreDeUsuario"
-                         id="closeSesion">Cerrar sesion</button>
+                        id="closeSesion">Cerrar sesion</button>
                         <div class="dropdown-divider"></div>
                         <a href="#" class="dropdown-item">Salir</a>
                     </div>   
@@ -57,19 +57,19 @@
                 </div>
             <!-- </div> -->
         </nav>
-</header>
-    <div class="container">
-        <div class="" id="contenedor">
-
-        </div>
+    </header>
+    <div style="background-color: #6f787f;width:100%;height:800PX">
+    
+    
     </div>
-</body>
+    
+</body >
 <!-- Footer -->
 <footer class="page-footer font-small" style="background-color:#313e48;position: fixed;bottom: 0;width: 100%;">
 
   <!-- Copyright -->
   <div class="footer-copyright text-center py-3"><font color="#ffffff">© 2020 Copyright:</font>
-    <a href="#"> SelectSalv S.A de C.v</a>
+    <a href="#"> SelectSalv S.A de C.V</a>
   </div>
   <!-- Copyright -->
 

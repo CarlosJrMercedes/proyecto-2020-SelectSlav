@@ -128,6 +128,7 @@ if(nomPartido.trim() != ""  && nomCandi.trim() != "" && bandera != null && candi
           window.setTimeout("reacargar()",1400);
         }else{
           Swal.fire("Error","Acción fallido","error");
+          window.setTimeout("reacargar()",1400);
         }
     
       }).fail(function(){
@@ -158,6 +159,7 @@ if(nomPartido.trim() != ""  && nomCandi.trim() != "" && bandera != null && candi
           window.setTimeout("reacargar()",1400);
         }else{
           Swal.fire("Error","Acción fallido","error");
+          window.setTimeout("reacargar()",1400);
         }
       }).fail({
 
@@ -204,6 +206,7 @@ if(nomPartido.trim() != ""  && nomCandi.trim() != "" && bandera != null && candi
           window.setTimeout("reacargar()",1400);
         }else{
           Swal.fire("Error","Acción fallido","error");
+          window.setTimeout("reacargar()",1400);
         }
       }).fail({
 

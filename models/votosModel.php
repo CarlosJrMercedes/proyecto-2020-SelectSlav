@@ -14,15 +14,24 @@ class VotosModel extends Conexion
         INNER JOIN municipios AS m ON m.id_munici = v.id_munici
         INNER JOIN junta_receptora AS jr ON jr.id_junta = v.id_junta
         INNER JOIN partido_politico AS p ON p.id_partido = v.id_partido
-        where v.estado=1;");
+        where v.estado=1");
        
         return $v;
     }
     function getAllPartidos()
     {
-        $v = $this->con->query("SELECT * FROM partido_politico WHERE estado=1;");
+        $v = $this->con->query("SELECT * FROM partido_politico WHERE estado=1");
        
         return $v;
     }
+
+    function getVotos()
+    {
+        $v = $this->con->query("SELECT * FROM votos WHERE estado=1");
+        return $v;
+    }
+
+
+
 }
-    ?>
+?>
