@@ -1,2 +1,2 @@
 <?php
-$mysqli = new mysqli("localhost", "root", "","selectSalv");
+$mysqli = new mysqli("localhost:3307", "root", "","selectSalv");

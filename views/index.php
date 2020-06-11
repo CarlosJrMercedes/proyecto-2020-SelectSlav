@@ -89,209 +89,233 @@
             </div>
         </div>      
         <!-- fin modal de inicio de sesion -->
-        
     </div>
+
     <div id="carousel1" class="carousel slide" data-ride="carousel" style="background-color: rgba(255, 255, 255, 0.3);">
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img src="img/banderaEs.jpg" alt="" 
-                    width="100%" height="500px">
-                </div>
-                <div class="carousel-item">
-                    <img src="img/mapa.png" alt="" 
-                    width="100%" height="500px">
-                </div>
-                <div class="carousel-item">
-                    <img src="img/flor.jpg" alt="" 
-                    width="100%" height="500px">
-                </div>
-                <div class="carousel-item">
-                    <img src="img/torogoz.jpg" alt="" 
-                    width="100%" height="500px">
-                </div>
-                <div class="carousel-item">
-                    <img src="img/arbol.jpg" alt="" 
-                    width="100%" height="500px">
-                </div>
-                <div class="carousel-item" style="text-align:center;">
-                    <img src="img/escudo.png" alt="" 
-                    width="50%" height="500px">
-                </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="img/banderaEs.jpg" alt="" 
+                width="100%" height="500px">
             </div>
-            
-            <!--Controles NEXT y PREV-->
-            <a class="carousel-control-prev" href="#carousel1" 
-            role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#carousel1" role="button" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-            </a>
-            <!--Controles de indicadores-->
-            <ol class="carousel-indicators">
-                <li data-target="#carousel1" data-slide-to="0" class="active"></li>
-                <li data-target="#carousel1" data-slide-to="1"></li>
-                <li data-target="#carousel1" data-slide-to="2"></li>
-                <li data-target="#carousel1" data-slide-to="3"></li>
-                <li data-target="#carousel1" data-slide-to="4"></li>
-                <li data-target="#carousel1" data-slide-to="5"></li>
-            </ol>
-            
+            <div class="carousel-item">
+                <img src="img/mapa.png" alt="" 
+                width="100%" height="500px">
+            </div>
+            <div class="carousel-item">
+                <img src="img/flor.jpg" alt="" 
+                width="100%" height="500px">
+            </div>
+            <div class="carousel-item">
+                <img src="img/torogoz.jpg" alt="" 
+                width="100%" height="500px">
+            </div>
+            <div class="carousel-item">
+                <img src="img/arbol.jpg" alt="" 
+                width="100%" height="500px">
+            </div>
+            <div class="carousel-item" style="text-align:center;">
+                <img src="img/escudo.png" alt="" 
+                width="50%" height="500px">
+            </div>
         </div>
-    <div class="col-md-12" style="color:#ffffff;text-align:center;">
-                <p>
-                    <h3>
-                        <font face="Bell MT">
-                            <b>
-                                SISTEMA DE VOTACIONES EN LINEA
-                            </b>
-                        </font>
-                    </h3>
-                </p>
-            </div>
-    <div style="padding:1%;background-color: rgba(255, 255, 255, 0.3);">
-    <div class="form-row" id="formMantenimiento" style="padding:5%;">
-    <div class="col-md-12">
-        <font face="Bell MT" color="#0000">
-            <label for="">
-            <b>
-                <h3> Complete el siguiente formulario....</h3>
-            </b>
-            </label>
-        </font>
+        
+        <!--Controles NEXT y PREV-->
+        <a class="carousel-control-prev" href="#carousel1" 
+        role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carousel1" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+        <!--Controles de indicadores-->
+        <ol class="carousel-indicators">
+            <li data-target="#carousel1" data-slide-to="0" class="active"></li>
+            <li data-target="#carousel1" data-slide-to="1"></li>
+            <li data-target="#carousel1" data-slide-to="2"></li>
+            <li data-target="#carousel1" data-slide-to="3"></li>
+            <li data-target="#carousel1" data-slide-to="4"></li>
+            <li data-target="#carousel1" data-slide-to="5"></li>
+        </ol>
     </div>
-        <div class="col-md-6">
-            <font face="Bell MT" color="#0000">
-                <label for="">
-                <b>
-                    <h5> Número de DUI :</h5>
-                </b>
-                </label>
-            </font>
-            <input type="text" id="dui" class="form-control form-control-sm" placeholder=".....">
-            <input type="text" id="idPartido" readonly hidden>
-            <input type="text" id="fotoVoto" readonly hidden>
-            <input type="text" id="nombreP" readonly hidden>
-        </div>
-        <div class="col-md-6">
-            <font face="Bell MT" color="#0000">
-                <label for="">
-                <b>
-                    <h5> Departamento de su localidad :</h5>
-                </b>
-                </label>
-            </font>
-            <select class="js-example-basic-single form-control" 
-            name="dept" id="dept">
-                <option value="0" selected><h6>SELECCIONE</h6></option>
-                <?php
-                    foreach($selectDept as $dept):
-                ?>
-                    <option value="<?php echo $dept["id_dept"];?>"><?php echo $dept["nombre"];?></option>
-                <?php
-                    endforeach;
-                ?>
-            </select>
 
-        </div>
-        <div class="clearfix"></div>
+    <div class="col-md-12" style="color:#ffffff;text-align:center;">
+        <p>
+            <h3>
+                <font face="Bell MT">
+                    <b>
+                        SISTEMA DE VOTACIONES EN LINEA
+                    </b>
+                </font>
+            </h3>
+        </p>
+    </div>
 
-        <div id="selectMuni" class="col-md-4">
-            <font face="Bell MT" color="#0000">
-                <label for="">
+    <div style="padding:1%;background-color: rgba(255, 255, 255, 0.3);">
+        <div class="form-row" id="formMantenimiento" style="padding:5%;">
+            <div class="col-md-12">
+                <font face="Bell MT" color="#0000">
+                    <label for="">
                     <b>
-                        <br>
-                        <h5> Municipio de su localidad :</h5>
+                        <h3> Complete el siguiente formulario....</h3>
                     </b>
-                </label>
-            </font>
-            <select class="js-example-basic-single form-control" 
-            name="muni" id="muni">
-            <option value="0"><h6>SELECCIONE</h6></option>
-                
-            </select>
-        </div>
-        <div id="selectCentro" class="col-md-4">
-            <font face="Bell MT" color="#0000">
-                <label for="">
+                    </label>
+                </font>
+            </div>
+            <div class="col-md-6">
+                <font face="Bell MT" color="#0000">
+                    <label for="">
                     <b>
-                        <br>
-                        <h5> Centro de votación de su localidad :</h5>
+                        <h5> Número de DUI :</h5>
                     </b>
-                </label>
-            </font>
-            <select class="js-example-basic-single form-control" 
-            name="cV" id="cV">
-            <option value="0"><h6>SELECCIONE</h6></option>
-                
-            </select>
-        </div>
-        <div id="selectJunta" class="col-md-4">
-            <font face="Bell MT" color="#0000">
-                <label for="">
+                    </label>
+                </font>
+                <input type="text" id="dui" class="form-control form-control-sm" placeholder=".....">
+                <input type="text" id="idPartido" readonly hidden>
+                <input type="text" id="fotoVoto" readonly hidden>
+                <input type="text" id="nombreP" readonly hidden>
+            </div>
+            <div class="col-md-6">
+                <font face="Bell MT" color="#0000">
+                    <label for="">
                     <b>
-                        <br>
-                        <h5> Centro de votación de su localidad :</h5>
+                        <h5> Departamento de su localidad :</h5>
                     </b>
-                </label>
-            </font>
-            <select name="jR" id="jR" class="js-example-basic-single form-control">
-                <option value="0"><h6>SELECCIONE</h6></option>
-            </select>
-            
-        <br>
-        <br>
-        <br>
-        </div>
-        <div class="col-md-12 bander" hidden>
-            <font face="Bell MT" color="#0000">
-                <label for="">
-                <b>
-                    <h3> Seleccione con un click la bandera de su elección....</h3>
-                </b>
-                </label>
-            </font>
-        </div>
+                    </label>
+                </font>
+                <select class="js-example-basic-single form-control" 
+                name="dept" id="dept">
+                    <option value="0" selected><h6>SELECCIONE</h6></option>
+                    <?php
+                        foreach($selectDept as $dept):
+                    ?>
+                        <option value="<?php echo $dept["id_dept"];?>"><?php echo $dept["nombre"];?></option>
+                    <?php
+                        endforeach;
+                    ?>
+                </select>
 
-        <?php
-            foreach($images as $img):
-                $idPartido = $img["id_partido"];
-                $nombreP = $img["nombre_partido"];
-                $bandera = $img["foto_bandera_partido"];
-                $candidato = $img["foto_candidato"];
-        ?>
-    
-            <div class="col-md-2 bander" style="text-align:center;" hidden>
-            <button class="btn btn-outline-dark btn-lg" id="voto" type="button"
-            onclick="$('#idPartido').val('<?php echo$idPartido?>');
-                     $('#fotoVoto').val('<?php echo$bandera?>');
-                     $('#nombreP').val('<?php echo$nombreP?>')">
-                <img src="<?php echo $bandera;?>" alt="" width="150px" 
-                heigth="150px">
-                <font face="Bell MT" color="#ffffff">
+            </div>
+            <div class="clearfix"></div>
+
+            <div id="selectMuni" class="col-md-4">
+                <font face="Bell MT" color="#0000">
                     <label for="">
                         <b>
-                            <h5> <?php echo $nombreP;?></h5>
+                            <br>
+                            <h5> Municipio de su localidad :</h5>
                         </b>
                     </label>
                 </font>
-            </button>
-                
+                <select class="js-example-basic-single form-control" 
+                name="muni" id="muni">
+                <option value="0"><h6>SELECCIONE</h6></option>
+                    
+                </select>
             </div>
-    
-        <?php
-            endforeach;
-        ?>
+            <div id="selectCentro" class="col-md-4">
+                <font face="Bell MT" color="#0000">
+                    <label for="">
+                        <b>
+                            <br>
+                            <h5> Centro de votación de su localidad :</h5>
+                        </b>
+                    </label>
+                </font>
+                <select class="js-example-basic-single form-control" 
+                name="cV" id="cV">
+                <option value="0"><h6>SELECCIONE</h6></option>
+                    
+                </select>
+            </div>
+            <div id="selectJunta" class="col-md-4">
+                <font face="Bell MT" color="#0000">
+                    <label for="">
+                        <b>
+                            <br>
+                            <h5> Centro de votación de su localidad :</h5>
+                        </b>
+                    </label>
+                </font>
+                <select name="jR" id="jR" class="js-example-basic-single form-control">
+                    <option value="0"><h6>SELECCIONE</h6></option>
+                </select>
+                
+            <br>
+            <br>
+            <br>
+            </div>
+            <div class="col-md-12 bander" hidden>
+                <font face="Bell MT" color="#0000">
+                    <label for="">
+                    <b>
+                        <h3> Seleccione con un click la bandera de su elección....</h3>
+                    </b>
+                    </label>
+                </font>
+            </div>
+
+            <?php
+                foreach($images as $img):
+                    $idPartido = $img["id_partido"];
+                    $nombreP = $img["nombre_partido"];
+                    $bandera = $img["foto_bandera_partido"];
+                    $candidato = $img["foto_candidato"];
+            ?>
+        
+                <div class="col-md-2 bander" style="text-align:center;" hidden>
+                <button class="btn btn-outline-dark btn-lg" id="voto" type="button"
+                onclick="$('#idPartido').val('<?php echo$idPartido?>');
+                        $('#fotoVoto').val('<?php echo$bandera?>');
+                        $('#nombreP').val('<?php echo$nombreP?>')">
+                    <img src="<?php echo $bandera;?>" alt="" width="150px" 
+                    heigth="150px">
+                    <font face="Bell MT" color="#ffffff">
+                        <label for="">
+                            <b>
+                                <h5> <?php echo $nombreP;?></h5>
+                            </b>
+                        </label>
+                    </font>
+                </button>
+                    
+                </div>
+        
+            <?php
+                endforeach;
+            ?>
+        </div>
+
     </div>
+    <div class="col-md-12" style="color:#ffffff;text-align:center;">
+        <p>
+            <h2>
+                <font face="Bell MT">
+                    <b>
+                        Estadísticas de las votaciones
+                    </b>
+                </font>
+            </h2>
+        </p>
     </div>
+
+   <div class="container" style="padding-buttom:5%;">
+       <div class="row">
+            <div class="col-md-6" id="graficosUno" style="height:500px;">
+
+            </div>
+            <div class="col-md-6" id="grafico2" style="float:right;height:500px;">
+
+            </div>
+       </div>
+   </div>
 
 
    
 </body>
 <!-- Footer -->
-<footer class="page-footer font-small" style="background-color:#313e48;position: relative;bottom: 0;width: 100%;">
+<footer class="page-footer font-small" style="background-color:#313e48;position: static;bottom: 0;width: 100%;">
 
   <!-- Copyright -->
   <div class="footer-copyright text-center py-3"><font color="#ffffff">© 2020 Copyright:</font>
@@ -314,8 +338,29 @@
     <script src="../views/resources/src/js/responsive.bootstrap4.min.js"></script>
     <script src="../views/resources/src/js/sweetalert2.all.min.js"></script>
     <script src="../views/resources/src/js/fontAweson.js"></script>
-    <script src="../views/resources/src/js/bootstrap-select.min.js"></script>
+    <script src="../views/resources/src/js/highcharts.js"></script>
+    <script src="../views/resources/src/js/data.js"></script>
+    <script src="../views/resources/src/js/drilldown.js"></script>
+    <script src="../views/resources/src/js/exporting.js"></script>
+    <script src="../views/resources/src/js/export-data.js"></script>
+    <script src="../views/resources/src/js/accessibility.js"></script>
     <script src="../views/resources/js/index.js"></script>
     <script src="../views/resources/js/login.js"></script>
+    <script>
+        $(function(){
+            $("#graficosUno").highcharts({
+                chart: {type :'column'},
+                title: {text: 'Estadísticas de votos'},
+                xAxis: {categories: [<?= $partido?>]},
+                yAxis: {title: {text: 'Resultado'}},
+                series:[{name: 'Votos',colorByPoint: true, data: [<?= $votos?>]}]
+            });
+        });
 
+
+        
+
+
+
+    </script>
 </html>

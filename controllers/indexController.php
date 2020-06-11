@@ -1,10 +1,20 @@
 <?php
     require "../models/MunicipioModel.php";
+    // $objIndex = new IndexModel();
     $obj1= new MunicipioModel();
-    
-    $selectDept = $obj1->getAllDept();
     $images = $obj1->getAllImg();
-    require_once "../views/index.php";
+    $selectDept = $obj1->getAllDept();
+    $data = $obj1->graficas();
+    $partido = "";
+    $votos = "";
+
+    foreach($data as $d):
+        $partido.= "'".$d["nombre_partido"]."',";
+        $votos.= $d["votos"].",";
+    endforeach;
+
+    
+  require_once "../views/index.php";
     
 
 ?>

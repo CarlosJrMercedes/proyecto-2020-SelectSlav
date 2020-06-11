@@ -5,6 +5,7 @@ $(document).ready(function(){
     $('.carousel').carousel();
     $('.js-example-basic-single').select2();
 
+
     $(document).on("change","#dept",function(){
         var valDui = /^\d{8}-\d$/;
         var dept = $("#dept").val();

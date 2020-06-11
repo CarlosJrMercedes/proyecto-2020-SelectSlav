@@ -141,5 +141,16 @@ class MunicipioModel extends Conexion
         
         return $sql;
     }
+
+    function graficas(){
+
+        $sql = $this->con->query("SELECT  p.nombre_partido, count(*) AS votos 
+        FROM votos v INNER JOIN partido_politico p WHERE p.id_partido = v.id_partido
+        GROUP BY v.id_partido");
+
+        return $sql;
+
+    }
+
 }
 ?>
