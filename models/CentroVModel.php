@@ -10,24 +10,16 @@
             c.fecha_modificacion,c.estado FROM centro_votacion c INNER JOIN
             municipios m WHERE C.id_munici = M.id_munici AND C.estado = 1");
            
-
            return $para;
 
             } 
 
 
         function getAllCentroVInact(){
-            $para = $this->con->query("SELECT * FROM centro_votacion WHERE estado= 2");
-            $r = array();
-
-            while($row=$para->fetch_assoc()){
-                $cen = new CentroV($row["id_centro"],$row["nombre"],$row["id_munici"],
-                $row["direccion"],$row["fecha_creacion"],
-                $row["fecha_modificacion"],
-                $row["estado"]);
-                $r[]=$cen;
-            }
-            return $r;
+            $para = $this->con->query("SELECT c.id_centro ,c.nombre ,m.nombre as municipio, c.direccion,c.fecha_creacion,c.fecha_modificacion,c.estado
+            FROM centro_votacion c INNER JOIN municipios m WHERE c.id_munici = m.id_munici AND c.estado = 2");
+            
+            return $para;
         } 
 
         function getAllMuni(){

@@ -43,13 +43,13 @@
                     <?php  
                         $datos = $centroModel->getAllCentroVInact();
                         foreach($datos as $d):
-                            $id = $d->getId_centro();
-                            $nombreComp = $d->getNombre();
-                            $muicipio = $d->getId_munici();
-                            $direccion = $d->getDireccion();
-                            $creacion = $d->getFecha_creacion();
-                            $modificacion = $d->getFecha_modificacion();
-                            $estado = $d->getEstado();
+                            $id = $d["id_centro"];
+                            $nombreComp = $d["nombre"];
+                            $muicipio = $d["municipio"];
+                            $direccion = $d["direccion"];
+                            $creacion = $d["fecha_creacion"];
+                            $modificacion = $d["fecha_modificacion"];
+                            $estado = $d["estado"];
                         ?>
                         <tr>
                         <td><?php echo $id;?></td>
