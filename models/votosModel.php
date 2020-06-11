@@ -27,11 +27,68 @@ class VotosModel extends Conexion
 
     function getVotos()
     {
-        $v = $this->con->query("SELECT * FROM votos WHERE estado=1");
+        $v = $this->con->query("SELECT  v.id_voto,v.dui_votante, m.nombre as municipio, j.nombre as junta,
+         p.nombre_partido, v.fecha_creacion, v.fecha_modificacion, v.estado
+        FROM votos v
+        INNER JOIN municipios m
+        INNER JOIN junta_receptora j
+        INNER JOIN partido_politico p
+        WHERE v.id_munici=m.id_munici
+        AND v.id_junta = j.id_junta
+        AND v.id_partido = p.id_partido
+        AND v.estado = 1");
+        return $v;
+    }
+
+    function getVotosInact()
+    {
+        $v = $this->con->query("SELECT  v.id_voto,v.dui_votante, m.nombre as municipio, j.nombre as junta,
+         p.nombre_partido, v.fecha_creacion, v.fecha_modificacion, v.estado
+        FROM votos v
+        INNER JOIN municipios m
+        INNER JOIN junta_receptora j
+        INNER JOIN partido_politico p
+        WHERE v.id_munici=m.id_munici
+        AND v.id_junta = j.id_junta
+        AND v.id_partido = p.id_partido
+        AND v.estado = 2");
         return $v;
     }
 
 
+
+    function desaVoto($idVoto){
+        try {
+            $sql = $this->con->prepare("UPDATE votos SET estado = 2,fecha_modificacion= NOW() WHERE id_voto=?");
+            $sql->bind_param('i',$a);
+            $a = $idVoto;
+            if($sql->execute()){
+
+                return 1;
+            }
+        } catch (Exception $ex) {
+            return $ex;
+        }
+        finally{
+            $sql->close();
+        }
+    }
+    function actiVoto($idVoto){
+        try {
+            $sql = $this->con->prepare("UPDATE votos SET estado = 1,fecha_modificacion= NOW() WHERE id_voto=?");
+            $sql->bind_param('i',$a);
+            $a = $idVoto;
+            if($sql->execute()){
+
+                return 1;
+            }
+        } catch (Exception $ex) {
+            return $ex;
+        }
+        finally{
+            $sql->close();
+        }
+    }
 
 }
 ?>

@@ -58,7 +58,7 @@
             <!-- </div> -->
         </nav>
     </header>
-    <div style="background-color: #6f787f;width:100%;height:800PX">
+    <div>
     
     
     </div>

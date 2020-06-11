@@ -21,7 +21,7 @@
     <link href="../views/resources/src/css/responsive.bootstrap4.min.css">
     <link href="../views/resources/css/style.css">
 </head>
-<body style="background-color: #6f787f">
+<body>
 <header>
 <nav class="navbar navbar-expand-lg navbar-light" style="background-color:  #313e48;">
             <!-- <div class="collapse navbar-collapse" id="navbarSupportedContent"> -->
@@ -74,72 +74,79 @@
                     ?>
                 </select>
             <br>
-            <input type="submit" class="btn btn-outline-dark btn-lg" 
-            value="Generar reporte de votos">      
+            <input type="submit" class="btn btn-outline-secondary btn-lg" 
+            value="Generar reporte de votos">     
+            <br> 
+            <br> 
+            <br> 
             </div>
         </form>
+        <input type="text" id="id" readonly hidden>
+        <button id="regresar" class="btn btn-outline-warning btn-lg" hidden>Regresar</button>
+        <div id="tblActivos">
+            <button id="verInactivos" class="btn btn-outline-dark btn-sm" >Ver Usuarios Inactivos</button>
+            <table class="table table-ligt" id="tblVotos" style="text-align:center;">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>ID</th>
+                        <th>DUI PERSONA</th>
+                        <th>MUNICIPIO</th>
+                        <th>JUNTA RECEPTORA</th>
+                        <th>PARTIDO POLITICO</th>
+                        <th>FECHA INGRESO</th>
+                        <th>FECHA ANULACION</th>
+                        <th>ESTADO</th>
+                        <th>ACCIÓN</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+
+                        foreach($votos as $d):
+                            $id = $d["id_voto"];
+                            $votante = $d["dui_votante"];
+                            $municipio = $d["municipio"];
+                            $junta = $d["junta"];
+                            $partido = $d["nombre_partido"];
+                            $creacion = $d["fecha_creacion"];
+                            $modificacion = $d["fecha_modificacion"];
+                            $estado = $d["estado"];
+                    ?>
+                    <tr>
+                        <th><?php echo $id;?></th>
+                        <td><?php echo $votante;?></td>
+                        <td><?php echo $municipio;?></td>
+                        <td><?php echo $junta;?></td>
+                        <td><?php echo $partido;?></td>
+                        <td><?php echo $creacion;?></td>
+                        <td><?php echo $modificacion;?></td>
+                        <td><?php if($estado == 1){echo "Activo";} ?></td>
+                        <td>
+                            <button class="btn btn-outline-secondary btn-lg" 
+                            onclick="$('#id').val('<?php echo $id?>');desavilitarVoto();">
+                                ANULAR
+                            </button>
+                        </td>
+                    </tr>
+                    <?php
+                        endforeach;
+                    ?>
+                </tbody>
+            </table>
+        </div>
+        <div id="tblInac">
+            
+        </div>
     </div>
 </body>
 <!-- Footer -->
-<footer class="page-footer font-small" style="background-color:#313e48;position: fixed;bottom: 0;width: 100%;">
+<footer class="page-footer font-small" style="background-color:#313e48;position: static;bottom: 0;width: 100%;">
 
   <!-- Copyright -->
   <div class="footer-copyright text-center py-3"><font color="#ffffff">© 2020 Copyright:</font>
     <a href="#"> SelectSalv S.A de C.V</a>
   </div>
   <!-- Copyright --> 
-    <div id="tblActivos">
-        <button id="verInactivos" class="btn btn-outline-dark btn-sm" >Ver Usuarios Inactivos</button>
-        <table class="table table-ligt" id="tblUsu" style="text-align:center;">
-            <thead class="thead-dark">
-                <tr>
-                    <th>ID</th>
-                    <th>Nombre</th>
-                    <th>ROL</th>
-                    <th>USUARIO</th>
-                    <th>CREACIÓN</th>
-                    <th>MODIFICACIÓN</th>
-                    <th>ESTADO</th>
-                    <th>ACCIÓN</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php
-
-                    foreach($datos as $d):
-                        $id = $d->getId_usuario();
-                        $nombreComp = $d->getNombre_completo();
-                        $rol = $d->getId_rol();
-                        $usuario = $d->getUsuario();
-                        $creacion = $d->getFecha_creacion();
-                        $modificacion = $d->getFecha_modificacion();
-                        $estado = $d->getEstado();
-                ?>
-                <tr>
-                    <th><?php echo $id;?></th>
-                    <td><?php echo $nombreComp;?></td>
-                    <td><?php echo $rol;?></td>
-                    <td><?php echo $usuario;?></td>
-                    <td><?php echo $creacion;?></td>
-                    <td><?php echo $modificacion;?></td>
-                    <td><?php if($estado == 1){echo "Activo";} ?></td>
-                    <td>
-                        <button class="btn btn-outline-secondary btn-lg" 
-                        onclick="habilitarBtn();$('#rol').val('<?php echo $rol?>');
-                                $('#nombre').val('<?php echo $nombreComp?>');
-                                $('#id').val('<?php echo $id?>');
-                                $('#usuario').val('<?php echo $usuario?>');">
-                            EDITAR
-                        </button>
-                    </td>
-                </tr>
-                <?php
-                    endforeach;
-                ?>
-            </tbody>
-        </table>
-    </div>
-
 </footer>
 <!-- Footer -->
     <script src="../views/resources/src/js/popper.min.js"></script>
@@ -154,5 +161,6 @@
     <script src="../views/resources/src/js/responsive.bootstrap4.min.js"></script>
     <script src="../views/resources/src/js/sweetalert2.all.min.js"></script>
     <script src="../views/resources/src/js/fontAweson.js"></script>
+    <script src="../views/resources/js/votos.js"></script>
     <script src="../views/resources/js/deslogueo.js"></script>
 </html>
