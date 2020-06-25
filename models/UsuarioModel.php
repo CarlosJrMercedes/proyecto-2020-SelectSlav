@@ -77,7 +77,7 @@
                 $a = $nombre;
                 $b = $rol;
                 $c = $usu;
-                $d = $contra;
+                $d = sha1($contra);
                 $sql->execute();
                 return 1;
             } catch (Exception $ex) {
@@ -96,7 +96,7 @@
                 $a = $nombre;
                 $b = $rol;
                 $c = $usu;
-                $d = $contra;
+                $d = sha1($contra);
                 $e = $idUsu;
                 $sql->execute();
                 return 1;
